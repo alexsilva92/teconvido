@@ -1,0 +1,22 @@
+25/04 14:19:55 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+25/04 14:21:05 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+25/04 14:22:26 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+25/04 14:22:31 | ERROR | ACCESO | IP : /127.0.0.1:60643 | No esta implementado la opcion null
+25/04 14:24:47 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+25/04 14:24:50 | ERROR | ACCESO | IP : /127.0.0.1:60644 | ACCION: GetElement |No esta implementado la opcion null
+25/04 14:26:23 | ERROR | SERVIDOR | Error al iniciar el servidor
+java.net.BindException: Address already in use: JVM_Bind
+	at java.net.DualStackPlainSocketImpl.bind0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketBind(DualStackPlainSocketImpl.java:96)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:374)
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:175)
+	at java.net.ServerSocket.bind(ServerSocket.java:376)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at java.net.ServerSocket.<init>(ServerSocket.java:128)
+	at com.taskserver.server.AbstractServer.<init>(AbstractServer.java:43)
+	at com.taskserver.implementation.server.Server.<init>(Server.java:46)
+	at com.taskserver.implementation.server.Server.main(Server.java:82)
+25/04 14:26:34 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+25/04 14:26:39 | ERROR | ACCESO | IP : /127.0.0.1:60645 | ACCION: GetElement | No esta implementado la opcion "null"
+25/04 14:30:15 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+25/04 14:30:18 | ERROR | ACCESO | IP : /127.0.0.1:60658 | ACCION: GetElement | java.net.SocketException: Connection reset

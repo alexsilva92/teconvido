@@ -1,0 +1,53 @@
+25/04 14:19:55 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+25/04 14:21:05 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+25/04 14:22:26 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+25/04 14:22:31 | ERROR | ACCESO | IP : /127.0.0.1:60643 | No esta implementado la opcion null
+25/04 14:24:47 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+25/04 14:24:50 | ERROR | ACCESO | IP : /127.0.0.1:60644 | ACCION: GetElement |No esta implementado la opcion null
+25/04 14:26:23 | ERROR | SERVIDOR | Error al iniciar el servidor
+java.net.BindException: Address already in use: JVM_Bind
+	at java.net.DualStackPlainSocketImpl.bind0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketBind(DualStackPlainSocketImpl.java:96)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:374)
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:175)
+	at java.net.ServerSocket.bind(ServerSocket.java:376)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at java.net.ServerSocket.<init>(ServerSocket.java:128)
+	at com.taskserver.server.AbstractServer.<init>(AbstractServer.java:43)
+	at com.taskserver.implementation.server.Server.<init>(Server.java:46)
+	at com.taskserver.implementation.server.Server.main(Server.java:82)
+25/04 14:26:34 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+25/04 14:26:39 | ERROR | ACCESO | IP : /127.0.0.1:60645 | ACCION: GetElement | No esta implementado la opcion "null"
+25/04 14:30:15 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+25/04 14:30:18 | ERROR | ACCESO | IP : /127.0.0.1:60658 | ACCION: GetElement | java.net.SocketException: Connection reset
+30/04 13:37:02 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+30/04 13:44:19 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+30/04 13:44:28 | INFO  | ACCESO | IP : /127.0.0.1:56321 | ACCION: INSERT_USER | ELEMENTO: com.teconvido.bd.modelo.User[ login=xperiaExample ]
+30/04 13:46:22 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+30/04 13:46:27 | INFO  | ACCESO | IP : /127.0.0.1:56346 | ACCION: INSERT_USER | ELEMENTO: com.teconvido.bd.modelo.User[ login=xperiaExample ]
+30/04 13:46:43 | INFO  | ACCESO | IP : /127.0.0.1:56350 | ACCION: INSERT_USER | ELEMENTO: com.teconvido.bd.modelo.User[ login=xperiaExample ]
+30/04 13:46:54 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+30/04 13:46:57 | INFO  | ACCESO | IP : /127.0.0.1:56354 | ACCION: INSERT_USER | ELEMENTO: com.teconvido.bd.modelo.User[ login=xperiaExample ]
+30/04 18:34:28 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+30/04 18:34:32 | INFO  | ACCESO | IP : /127.0.0.1:58887 | ACCION: UPDATE_GCM_CODE | ELEMENTO: a
+30/04 18:35:10 | INFO  | ACCESO | IP : /127.0.0.1:58897 | ACCION: UPDATE_GCM_CODE | ELEMENTO: a
+30/04 18:36:03 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+30/04 18:36:06 | INFO  | ACCESO | IP : /127.0.0.1:58907 | ACCION: UPDATE_GCM_CODE | ELEMENTO: a
+30/04 18:37:31 | INFO  | ACCESO | IP : /127.0.0.1:58923 | ACCION: UPDATE_GCM_CODE | ELEMENTO: null
+30/04 18:58:31 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+30/04 18:58:38 | INFO  | ACCESO | IP : /127.0.0.1:59235 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: com.teconvido.bd.modelo.User[ login=xperiaS ]
+30/04 18:58:39 | INFO  | ACCESO | IP : /127.0.0.1:59237 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: com.teconvido.bd.modelo.User[ login=xperiaS ]
+30/04 18:59:08 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+30/04 18:59:11 | INFO  | ACCESO | IP : /127.0.0.1:59246 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: com.teconvido.bd.modelo.User[ login=xperiaS ]
+30/04 18:59:11 | INFO  | ACCESO | IP : /127.0.0.1:59248 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: com.teconvido.bd.modelo.User[ login=xperiaS ]
+30/04 19:00:04 | INFO  | ACCESO | IP : /127.0.0.1:59260 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: com.teconvido.bd.modelo.User[ login=xperiaS ]
+30/04 19:00:04 | INFO  | ACCESO | IP : /127.0.0.1:59262 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: com.teconvido.bd.modelo.User[ login=xperiaS ]
+30/04 19:12:58 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+08/05 12:33:54 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+08/05 12:34:59 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+08/05 12:36:35 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+08/05 12:36:47 | ERROR | ACCESO | IP : /127.0.0.1:61076 | ACCION: GetElement | java.net.SocketException: Connection reset
+08/05 12:39:35 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+09/05 10:10:33 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+09/05 11:39:32 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+09/05 12:58:10 | ERROR | ACCESO | IP : /127.0.0.1:60074 | ACCION: NotificationPush | java.net.UnknownHostException: android.googleapis.com

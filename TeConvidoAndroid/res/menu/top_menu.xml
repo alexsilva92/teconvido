@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/Alert"  
+          android:title="@string/alert_title"
+          android:icon="@drawable/no_alert_48x48">  
+    </item>
+    <item android:id="@+id/Message"  
+          android:title="@string/message_title"
+          android:icon="@drawable/no_message_48x48">  
+    </item>
+</menu>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<configDB>
+    <application>Task Server</application>
+    <author>Alejandro Silva</author>
+    <version>1.0</version>
+    <user>root</user>
+    <password>nZGov+L9reUySxQ7HE298w==</password>
+    <jdbc>jdbc:mysql://localhost:3306/Turocable</jdbc>
+    <driver>com.mysql.jdbc.Driver</driver>
+</configDB>

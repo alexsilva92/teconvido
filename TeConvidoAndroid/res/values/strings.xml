@@ -1,0 +1,20 @@
+<resources>
+
+    <string name="app_name">TeConvido</string>
+    <string name="register_title">Registrar</string>
+    <string name="recover_pass_title">Recuperar contraseña</string>
+    <string name="menu_title">Menu principal</string>
+    <string name="login_title_email">Email</string>
+    <string name="login_title_password">Contraseña</string>
+    <string name="login_button_login">Login</string>
+    <string name="login_button_register">Registro</string>
+    <string name="login_checkbox_recordar">Recordarme</string>
+    <string name="login_label_olvidarpass"><u>¿Ha olvidado su contraseña?</u></string>
+    <string name="toast_email_error">El email no es correcto</string>
+    <string name="toast_login_fields_empty">Debes rellenar todos los campos</string>
+    <string name="toast_login_incorrect">El email o la contraseña no son correctos</string>
+    <string name="toast_connetion_error">No se puede conectar con el servidor. Revisa tu conexión a Internet</string>
+    <string name="alert_title">Alertas</string>
+    <string name="message_title">Mensajes</string>
+
+</resources>
