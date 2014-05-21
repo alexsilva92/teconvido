@@ -1,11 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <string name="app_name">TeConvido</string>
     <string name="register_title">Registrar</string>
     <string name="recover_pass_title">Recuperar contraseña</string>
     <string name="menu_title">Menu principal</string>
-    <string name="login_title_email">Email</string>
-    <string name="login_title_password">Contraseña</string>
+    <string name="login_label_email">Email</string>
+    <string name="login_label_password">Contraseña</string>
     <string name="login_button_login">Login</string>
     <string name="login_button_register">Registro</string>
     <string name="login_checkbox_recordar">Recordarme</string>
@@ -16,5 +17,17 @@
     <string name="toast_connetion_error">No se puede conectar con el servidor. Revisa tu conexión a Internet</string>
     <string name="alert_title">Alertas</string>
     <string name="message_title">Mensajes</string>
+    <string name="search_travel_label_origin">Origen</string>
+    <string name="search_travel_label_destiny">Destino</string>
+    <string name="search_travel_label_date">Fecha</string>
+    <string name="search_travel_button_search">Buscar</string>
+    <string name="search_travel_title">Buscar Viaje</string>
+    <string name="publish_travel_title">Publicar Viaje</string>
+    <string name="profile_title">Perfil</string>
+    <string name="my_travels_title">Mis Viajes</string>
+    <string name="session_close_title">Cerrar Sesión</string>
+    <string name="session_close_message">¿Desea cerrar la sesión?</string>
+    <string name="confirm">Confirmar</string>
+    <string name="cancel">Cancelar</string>
 
 </resources>

@@ -3,12 +3,11 @@ package com.android.teconvido.activity;
 import com.android.teconvido.R;
 
 import android.os.Bundle;
-import android.app.Activity;
 import android.app.NotificationManager;
 import android.content.Context;
 
 
-public class AlertActivity extends Activity {
+public class AlertActivity extends AbstractTopMenuActivity{
     
 
 	@Override

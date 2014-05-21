@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.android.teconvido.R;
-import com.android.teconvido.activity.GpsExampleActivity;
+import com.android.teconvido.activity.SearchTravelActivity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -53,18 +53,8 @@ public class ContainerMenu {
 		context = _context;
 		
 		menus = new HashMap<KeyMenu,ItemMenu>();
-		
-		menus.put(KeyMenu.GPS, new ItemMenu("GPS",
-				BitmapFactory.decodeResource(context.getResources(),R.drawable.gps_128x128),
-				new OnClickListener(){
-					public void onClick(View v) {
-						Intent gps = new Intent(context, GpsExampleActivity.class);
-						context.startActivity(gps); 
-					}
-				}
-		));
-		
-		menus.put(KeyMenu.MY_TRAVELS, new ItemMenu("Mis Viajes",
+		menus.put(KeyMenu.MY_TRAVELS, new ItemMenu(
+				context.getString(R.string.my_travels_title),
 				BitmapFactory.decodeResource(context.getResources(),R.drawable.my_travels_128x128),
 				new OnClickListener(){
 					public void onClick(View v) {
@@ -73,7 +63,8 @@ public class ContainerMenu {
 				}
 		));
 		
-		menus.put(KeyMenu.PROFILE, new ItemMenu("Perfil",
+		menus.put(KeyMenu.PROFILE, new ItemMenu(
+				context.getString(R.string.profile_title),
 				BitmapFactory.decodeResource(context.getResources(),R.drawable.profile_128x128),
 				new OnClickListener(){
 					public void onClick(View v) {
@@ -82,16 +73,21 @@ public class ContainerMenu {
 				}
 		));
 		
-		menus.put(KeyMenu.SEARCH_TRAVELS, new ItemMenu("Buscar viajes",
+		menus.put(KeyMenu.SEARCH_TRAVELS, new ItemMenu(
+				context.getString(R.string.search_travel_title),
 				BitmapFactory.decodeResource(context.getResources(),R.drawable.travel_search_128x128),
 				new OnClickListener(){
 					public void onClick(View v) {
-						Toast.makeText(context, "Sin Implementar", Toast.LENGTH_SHORT).show();
+						Intent searchTravel = new Intent(context,SearchTravelActivity.class);
+						searchTravel.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | 
+		    					   Intent.FLAG_ACTIVITY_SINGLE_TOP);
+						context.startActivity(searchTravel);
 					}
 				}
 		));
 		
-		menus.put(KeyMenu.ADD_TRAVEL, new ItemMenu("Publicar viajes",
+		menus.put(KeyMenu.ADD_TRAVEL, new ItemMenu(
+				context.getString(R.string.publish_travel_title),
 				BitmapFactory.decodeResource(context.getResources(),R.drawable.add_travel_128),
 				new OnClickListener(){
 					public void onClick(View v) {

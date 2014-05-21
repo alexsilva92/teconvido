@@ -1,23 +1,16 @@
 package com.android.teconvido.gcm;
 
-import com.android.teconvido.R;
 import com.android.teconvido.activity.AbstractTopMenuActivity;
-import com.android.teconvido.activity.MenuActivity;
-import com.android.teconvido.activity.AlertActivity;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
 import android.app.IntentService;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.NotificationCompat;
 
 public class GCMIntentService extends IntentService 
 {
-	private static final int NOTIF_ALERTA_ID = 1;
+	//private static final int NOTIF_ALERTA_ID = 1;
 
 	public GCMIntentService() {
         super("GCMIntentService");

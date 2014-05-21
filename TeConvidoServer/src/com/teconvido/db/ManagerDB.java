@@ -15,9 +15,9 @@
  */
 package com.teconvido.db;
 
-import com.taskserver.db.AbstractManagerDB;
 import com.taskserver.db.GetElementDB;
 import com.taskserver.db.InsertElementDB;
+import com.taskserver.db.RemoveElementDB;
 import com.taskserver.db.UpdateElementDB;
 import com.teconvido.bd.modelo.User;
 import com.teconvido.common.TeConvidoConstantDB;
@@ -26,60 +26,129 @@ import com.teconvido.common.TeConvidoConstantDB.InsertDB;
 import com.teconvido.common.TeConvidoConstantDB.RemoveDB;
 import com.teconvido.common.TeConvidoConstantDB.UpdateDB;
 import com.utilities.cryptor.CryptorException;
+import com.utilities.gson.GsonS;
+import com.utilities.xml.configdb.MangerConfigDB;
+import example.taskserver.common.ConstantDB;
 import java.io.IOException;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 import javax.xml.bind.JAXBException;
 
 /**
  * ManagerDB.java
  * @author Alejandro Silva
  */
-public class ManagerDB extends AbstractManagerDB<GetDB,InsertDB,UpdateDB,
-RemoveDB> implements TeConvidoConstantDB{
+public class ManagerDB implements TeConvidoConstantDB{
     
-    public ManagerDB(String rutaConfig) throws JAXBException, IOException, 
+    protected java.sql.Connection connectionBD;
+    private MangerConfigDB preferences;
+    protected Map<GetDB,GetElementDB<String,String>> gets;
+    protected Map<InsertDB,InsertElementDB<String,String>> inserts;
+    protected Map<UpdateDB,UpdateElementDB<String,String,String>> updates;
+    protected Map<RemoveDB,RemoveElementDB<String,String>> removes;
+    
+    public ManagerDB(String configRoute) throws JAXBException, IOException, 
     CryptorException, ClassNotFoundException{
-        super(rutaConfig);
+        preferences = new MangerConfigDB(configRoute);
+
+        Class.forName(preferences.getDriver());
+
+        gets = new HashMap<>();
+        initializeGets();
+        
+        inserts = new HashMap<>();  
+        initializeInserts();
+        
+        updates = new HashMap<>();  
+        initializeUpdates();
+        
+        removes = new HashMap<>();
+        initializeRemoves();
     }
     
     public ManagerDB() throws JAXBException, IOException, CryptorException,
     ClassNotFoundException{
-        super();
+        this(MangerConfigDB.DEFAULT_DIRECTORY);
     }
-
-    @Override
+    
     protected void initializeGets() {
         gets.put(GetDB.IS_CORRECT_LOGIN, new IsCorrectLogin());
         gets.put(GetDB.GET_GCM_ID, new GetGcmId());
     }
 
-    @Override
     protected void initializeInserts() {
         inserts.put(InsertDB.INSERT_USER, new InsertUser());
     }
 
-    @Override
     protected void initializeUpdates() {
         updates.put(UpdateDB.UPDATE_GCM_CODE, new UpdateGcmCode());
     }
 
-    @Override
     protected void initializeRemoves() {
 
     }
     
-    /********************* GETS ***********************************************/
+    protected void crearConexionBD() throws SQLException{
+        connectionBD = DriverManager.getConnection(
+                    preferences.getJdbc(),
+                    preferences.getUser(),
+                    preferences.getPassword());
+        connectionBD.setAutoCommit(false);
+    }
     
-    private class IsCorrectLogin implements GetElementDB{
+    
+    public synchronized String get(GetDB typeGet,String search)
+    {
+        if(typeGet != null && gets.containsKey(typeGet)){
+            return gets.get(typeGet).get(search);
+        } else {
+            throw new RuntimeException("No esta implementada "
+                    + "la opcion \"" + typeGet + "\"");
+        } 
+    }
+   
+    public synchronized String insert(InsertDB typeInsert,String element) {
+        if(typeInsert != null && inserts.containsKey(typeInsert)){
+            return inserts.get(typeInsert).insert(element);
+        } else {
+            throw new RuntimeException("No esta implementada "
+                    + "la opcion \"" + typeInsert + "\"");
+        } 
+    }
+    
+    public synchronized String update(UpdateDB typeUpdate, String search,
+    String element){
+        if(typeUpdate != null && updates.containsKey(typeUpdate)){
+            return updates.get(typeUpdate).update(search,element);
+        } else {
+            throw new RuntimeException("No esta implementada "
+                    + "la opcion \"" + typeUpdate + "\"");
+        } 
+    }
+    
+    public synchronized String remove(RemoveDB typeRemove, String element){
+        if(typeRemove != null && removes.containsKey(typeRemove)){
+            return removes.get(typeRemove).remove(element);
+        } else {
+            throw new RuntimeException("No esta implementada "
+                    + "la opcion \"" +  typeRemove + "\"");
+        }
+    }
+    
+/********************* GETS ***************************************************/
+    
+    private class IsCorrectLogin implements GetElementDB<String,String>{
 
         private static final String SQL = "SELECT * FROM User u "
                 + "WHERE u.email = ? AND u.password = sha1(?)";
 
         @Override
-        public Object get(Object search) {
-            User user = (User) search;
+        public String get(String search) {
+            User user = GsonS.getGson().fromJson(search,User.class);
             boolean login = false;
             try {
                 PreparedStatement ps = null;
@@ -100,18 +169,18 @@ RemoveDB> implements TeConvidoConstantDB{
             } catch (SQLException ex) {
                 ex.printStackTrace();
             } finally{
-                return login;
+                return GsonS.getGson().toJson(login);
             }
         }
     }
     
-    private class GetGcmId implements GetElementDB{
+    private class GetGcmId implements GetElementDB<String,String>{
          private static final String SQL = "SELECT u.gcmCode FROM User u "
                 + "WHERE u.login = ?";
 
         @Override
-        public Object get(Object search) {
-            String login = (String) search;
+        public String get(String search) {
+            String login =  search;
             String gcmCode = null;
             try {
                 PreparedStatement ps = null;
@@ -137,8 +206,8 @@ RemoveDB> implements TeConvidoConstantDB{
         
     }
     
-    /********************* INSERTS ********************************************/
-    private class InsertUser implements InsertElementDB{
+/********************* INSERTS ************************************************/
+    private class InsertUser implements InsertElementDB<String,String>{
 
         private static final String SQL = 
             "INSERT INTO User " +
@@ -146,8 +215,8 @@ RemoveDB> implements TeConvidoConstantDB{
             "VALUES (?,?,sha1(?))";
         
         @Override
-        public Object insert(Object element) {
-            User user = (User) element;
+        public String insert(String element) {
+            User user = GsonS.getGson().fromJson(element,User.class);
             try {
                 PreparedStatement ps = null;
 
@@ -165,28 +234,29 @@ RemoveDB> implements TeConvidoConstantDB{
                 connectionBD.commit();
                 connectionBD.close();
 
-                return true;
+                return GsonS.getGson().toJson(true);
             } catch (SQLException ex) {
                 ex.printStackTrace();
-                return false;
+                return GsonS.getGson().toJson(false);
             }
         }
     }
     
-    /********************* UPDATES ********************************************/
+/********************* UPDATES ************************************************/
     
-    private class UpdateGcmCode implements UpdateElementDB{
+    private class UpdateGcmCode 
+    implements UpdateElementDB<String,String,String>{
 
         private static final String SQL = 
                 "UPDATE User SET gcmCode = ? " + 
                 "WHERE email = ?";
         
         @Override
-        public Object update(Object busqueda, Object elemento) {
+        public String update(String busqueda, String elemento) {
             boolean actualizado = false;
             
-            String email = (String) busqueda;
-            String gcmCode = (String) elemento;
+            String email = busqueda;
+            String gcmCode = elemento;
             try{
                 crearConexionBD();
                 
@@ -204,7 +274,7 @@ RemoveDB> implements TeConvidoConstantDB{
             }catch(SQLException ex){
                 ex.printStackTrace();
             }finally{
-                return actualizado;
+                return GsonS.getGson().toJson(actualizado);
             }
         }
     }

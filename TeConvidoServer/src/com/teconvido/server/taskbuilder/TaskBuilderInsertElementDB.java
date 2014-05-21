@@ -17,10 +17,10 @@ package com.teconvido.server.taskbuilder;
 
 import com.taskserver.server.AbstractTaskManager;
 import com.taskserver.server.TaskBuilder;
-import com.taskserver.server.ThreadRequests;
+import com.taskserver.server.AbstractThreadRequests;
 import com.teconvido.common.TeConvidoConstantDB;
 import com.teconvido.server.TaskManager;
-import com.utilities.safesocket.SafeSocket;
+import com.utilities.communication.socket.CommunicationSocket;
 import java.io.IOException;
 import org.apache.log4j.Logger;
 
@@ -32,11 +32,11 @@ public class TaskBuilderInsertElementDB implements TaskBuilder{
     private static final Logger logger = 
             Logger.getLogger(TaskInsertElementDB.class);
     
-    private class TaskInsertElementDB extends ThreadRequests 
+    private class TaskInsertElementDB extends AbstractThreadRequests 
     implements TeConvidoConstantDB {       
        
         public TaskInsertElementDB(AbstractTaskManager manager, 
-                SafeSocket communication) {
+                CommunicationSocket communication) {
             super(manager,communication);
         }
 
@@ -44,11 +44,11 @@ public class TaskBuilderInsertElementDB implements TaskBuilder{
         public Integer call() {
 
             try {
-                InsertDB typeInsert = (InsertDB) communication.receive();
-                Object element = communication.receive();
+                InsertDB typeInsert = communication.receive(InsertDB.class);
+                String element = communication.receive(String.class);
             
                 try{
-                Object result = ((TaskManager)manager).getManagerDB().insert(
+                String result = ((TaskManager)manager).getManagerDB().insert(
                         typeInsert,element);
 
                 logger.info("ACCESO | IP : " + communication.getSocket().
@@ -75,8 +75,8 @@ public class TaskBuilderInsertElementDB implements TaskBuilder{
      }
     
      @Override
-     public ThreadRequests createTask(AbstractTaskManager manager, 
-     SafeSocket communication){
+     public AbstractThreadRequests createTask(AbstractTaskManager manager, 
+     CommunicationSocket communication){
          return new TaskInsertElementDB(manager,communication);
      } 
 }

@@ -55,6 +55,8 @@ public class TaskManager extends AbstractTaskManager<TypeServiceServer>{
                 new TaskBuilderRemoveElementDB());
         taskBuilders.put(TypeServiceServer.NOTIFICATION_PUSH, 
                 new TaskBuilderNotificationPush());
+        taskBuilders.put(TypeServiceServer.GET_ELEMENT, 
+                new TaskBuilderGetElementDB());
     }
 
     public ManagerDB getManagerDB() {

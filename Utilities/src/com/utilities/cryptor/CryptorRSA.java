@@ -27,8 +27,6 @@ import javax.crypto.NoSuchPaddingException;
 /**
  * CryptorRSA.java
  * @author Alejandro Silva
- * @author Félix Serna
- * @author CodeCrack(http://coding.westreicher.org/?p=23)
  * CryptorRSA
  */
 public final class CryptorRSA {
@@ -138,7 +136,7 @@ public final class CryptorRSA {
      * @return key publica
      */
     public byte[] getPublicKey() {
-        return this.publicKey.getEncoded();
+        return publicKey.getEncoded();
     }
 
     /**
@@ -148,10 +146,8 @@ public final class CryptorRSA {
      */
     public void setPublicKey(byte[] _key) throws CryptorException{
         try {
-            X509EncodedKeySpec pubKeySpec = new X509EncodedKeySpec(_key);
-            KeyFactory keyFactory = KeyFactory.getInstance(ALGORITHM_KG);
-
-            this.publicKey = keyFactory.generatePublic(pubKeySpec);
+            publicKey =  KeyFactory.getInstance(ALGORITHM_KG).
+                    generatePublic(new X509EncodedKeySpec(_key));
         } catch (InvalidKeySpecException | NoSuchAlgorithmException ex) {
             throw new CryptorException(ex);
         }
@@ -176,11 +172,8 @@ public final class CryptorRSA {
      */
     private byte[] encrypt(byte[] bytes, Key key) throws InvalidKeyException, 
     IllegalBlockSizeException,BadPaddingException {
-        
-        this.cipher.init(Cipher.ENCRYPT_MODE, key);
-
-        byte[] crypted = this.blockCipher(bytes, Cipher.ENCRYPT_MODE); 
-        return crypted;
+        cipher.init(Cipher.ENCRYPT_MODE, key);
+        return cipher.doFinal(bytes); 
     }
 
     /**
@@ -194,78 +187,7 @@ public final class CryptorRSA {
      */
     private byte[] decrypt(byte[] bytes, Key key) throws InvalidKeyException, 
     IllegalBlockSizeException,BadPaddingException {
-        
-        this.cipher.init(Cipher.DECRYPT_MODE, key);
-
-        byte[] decrypted = this.blockCipher(bytes, Cipher.DECRYPT_MODE);
-        return decrypted;
+        cipher.init(Cipher.DECRYPT_MODE, key);
+        return cipher.doFinal(bytes);
     }
-
-    /**
-     * blockCipher
-     * @param bytes
-     * @param modoEncriptacion (Cipher.ENCRYPT_MODE o Cipher.DECRYPT_MODE)
-     * @return bytes criptados o desencriptados, seg?n el m?todo elegido
-     * @throws IllegalBlockSizeException
-     * @throws BadPaddingException 
-     */
-    private byte[] blockCipher(byte[] bytes, int modoEncriptacion)
-    throws IllegalBlockSizeException,BadPaddingException{
-        Cipher _cipher;
-        _cipher = this.cipher;
-
-        // Cadena inicializar dos buffers.
-        // scrambled tendr? los resultados intermedios
-        byte[] scrambled = new byte[0];
-        // ToReturn tendr? el resultado total
-        byte[] toReturn = new byte[0];
-        // Si ciframos usamos 100 bloques largos de bytes. El descifrado 
-        // requiere 128 bloques de bytes de largo (debido a RSA)
-        int chunkLength = 0;
-        if (modoEncriptacion == Cipher.ENCRYPT_MODE){
-            chunkLength = 100;
-        }else{
-            chunkLength = 128;
-        }
-
-        // otro buffer. ?ste contendr? los bytes que tienen que ser 
-        // modificados en este paso
-        byte[] buffer = new byte[chunkLength];
-
-        for (int i=0; i< bytes.length; i++){
-            // Si llenamos nuestra matriz del b?fer tenemos nuestro bloque
-            // listo para [de]cifrado
-            if ((i > 0) && (i % chunkLength == 0)){
-                scrambled = _cipher.doFinal(buffer);
-                toReturn = append(toReturn,scrambled);
-                int newlength = chunkLength;
-
-                if (i + chunkLength > bytes.length) {
-                    newlength = bytes.length - i;
-                }
-                buffer = new byte[newlength];
-            }
-            buffer[i%chunkLength] = bytes[i];
-        }
-        scrambled = _cipher.doFinal(buffer);
-
-        toReturn = append(toReturn,scrambled);
-        return toReturn;
-    }
-           
-    /**
-     * Anexa el "sufijo" matriz de bytes con el "prefijo" uno.
-     * @param prefix
-     * @param suffix
-     * @return toReturn
-     */
-    private byte[] append(byte[] prefix, byte[] suffix){
-        
-        byte[] toReturn = new byte[prefix.length + suffix.length];
-        System.arraycopy(prefix, 0, toReturn, 0, prefix.length);
-        System.arraycopy(suffix, 0, toReturn, prefix.length, 
-                suffix.length);
-        return toReturn;
-    }
-
 }

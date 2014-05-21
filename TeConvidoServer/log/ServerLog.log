@@ -51,3 +51,354 @@ java.net.BindException: Address already in use: JVM_Bind
 09/05 10:10:33 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
 09/05 11:39:32 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
 09/05 12:58:10 | ERROR | ACCESO | IP : /127.0.0.1:60074 | ACCION: NotificationPush | java.net.UnknownHostException: android.googleapis.com
+19/05 13:22:01 | ERROR | SERVIDOR | Error al iniciar el servidor
+java.net.BindException: Address already in use: JVM_Bind
+	at java.net.DualStackPlainSocketImpl.bind0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketBind(DualStackPlainSocketImpl.java:106)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:376)
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:190)
+	at java.net.ServerSocket.bind(ServerSocket.java:376)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at java.net.ServerSocket.<init>(ServerSocket.java:128)
+	at com.taskserver.server.AbstractServer.<init>(AbstractServer.java:41)
+	at com.teconvido.server.TeConvidoServer.<init>(TeConvidoServer.java:48)
+	at com.teconvido.server.TeConvidoServer.main(TeConvidoServer.java:84)
+19/05 13:22:10 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+19/05 13:24:58 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+19/05 13:25:05 | ERROR | SERVIDOR | Error al iniciar el servidor
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:189)
+	at java.net.SocketInputStream.read(SocketInputStream.java:121)
+	at java.io.DataInputStream.readFully(DataInputStream.java:195)
+	at java.io.DataInputStream.readUTF(DataInputStream.java:609)
+	at java.io.DataInputStream.readUTF(DataInputStream.java:564)
+	at com.utilities.safesocket.gson.SafeSocket.receiveAesKey(SafeSocket.java:175)
+	at com.utilities.safesocket.gson.SafeServerSocket.exchangeKeys(SafeServerSocket.java:78)
+	at com.utilities.safesocket.gson.SafeServerSocket.<init>(SafeServerSocket.java:39)
+	at com.taskserver.server.AbstractServer.start(AbstractServer.java:51)
+	at com.teconvido.server.TeConvidoServer.main(TeConvidoServer.java:86)
+19/05 13:27:05 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+19/05 13:27:08 | ERROR | SERVIDOR | Error al iniciar el servidor
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:189)
+	at java.net.SocketInputStream.read(SocketInputStream.java:121)
+	at java.io.DataInputStream.readFully(DataInputStream.java:195)
+	at java.io.DataInputStream.readUTF(DataInputStream.java:609)
+	at java.io.DataInputStream.readUTF(DataInputStream.java:564)
+	at com.utilities.safesocket.gson.SafeSocket.receiveAesKey(SafeSocket.java:175)
+	at com.utilities.safesocket.gson.SafeServerSocket.exchangeKeys(SafeServerSocket.java:78)
+	at com.utilities.safesocket.gson.SafeServerSocket.<init>(SafeServerSocket.java:39)
+	at com.taskserver.server.AbstractServer.start(AbstractServer.java:51)
+	at com.teconvido.server.TeConvidoServer.main(TeConvidoServer.java:86)
+19/05 13:27:43 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+19/05 13:27:46 | ERROR | SERVIDOR | Error al iniciar el servidor
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:189)
+	at java.net.SocketInputStream.read(SocketInputStream.java:121)
+	at java.net.SocketInputStream.read(SocketInputStream.java:203)
+	at java.io.DataInputStream.readUnsignedShort(DataInputStream.java:337)
+	at java.io.DataInputStream.readUTF(DataInputStream.java:589)
+	at java.io.DataInputStream.readUTF(DataInputStream.java:564)
+	at com.utilities.safesocket.gson.SafeSocket.receiveAesKey(SafeSocket.java:175)
+	at com.utilities.safesocket.gson.SafeServerSocket.exchangeKeys(SafeServerSocket.java:78)
+	at com.utilities.safesocket.gson.SafeServerSocket.<init>(SafeServerSocket.java:39)
+	at com.taskserver.server.AbstractServer.start(AbstractServer.java:51)
+	at com.teconvido.server.TeConvidoServer.main(TeConvidoServer.java:86)
+19/05 13:40:19 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+19/05 13:40:30 | ERROR | SERVIDOR | Error al iniciar el servidor
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:189)
+	at java.net.SocketInputStream.read(SocketInputStream.java:121)
+	at java.net.SocketInputStream.read(SocketInputStream.java:203)
+	at java.io.DataInputStream.readUnsignedShort(DataInputStream.java:337)
+	at java.io.DataInputStream.readUTF(DataInputStream.java:589)
+	at java.io.DataInputStream.readUTF(DataInputStream.java:564)
+	at com.utilities.safesocket.gson.SafeSocket.receiveAesKey(SafeSocket.java:175)
+	at com.utilities.safesocket.gson.SafeServerSocket.exchangeKeys(SafeServerSocket.java:78)
+	at com.utilities.safesocket.gson.SafeServerSocket.<init>(SafeServerSocket.java:39)
+	at com.taskserver.server.AbstractServer.start(AbstractServer.java:51)
+	at com.teconvido.server.TeConvidoServer.main(TeConvidoServer.java:86)
+19/05 13:41:58 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+19/05 13:42:13 | ERROR | SERVIDOR | Error al iniciar el servidor
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:189)
+	at java.net.SocketInputStream.read(SocketInputStream.java:121)
+	at java.net.SocketInputStream.read(SocketInputStream.java:203)
+	at java.io.DataInputStream.readUnsignedShort(DataInputStream.java:337)
+	at java.io.DataInputStream.readUTF(DataInputStream.java:589)
+	at java.io.DataInputStream.readUTF(DataInputStream.java:564)
+	at com.utilities.safesocket.gson.SafeSocket.receiveAesKey(SafeSocket.java:174)
+	at com.utilities.safesocket.gson.SafeServerSocket.exchangeKeys(SafeServerSocket.java:78)
+	at com.utilities.safesocket.gson.SafeServerSocket.<init>(SafeServerSocket.java:39)
+	at com.taskserver.server.AbstractServer.start(AbstractServer.java:51)
+	at com.teconvido.server.TeConvidoServer.main(TeConvidoServer.java:86)
+19/05 13:43:46 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+19/05 13:43:51 | ERROR | SERVIDOR | Error al iniciar el servidor
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:189)
+	at java.net.SocketInputStream.read(SocketInputStream.java:121)
+	at java.net.SocketInputStream.read(SocketInputStream.java:203)
+	at java.io.DataInputStream.readUnsignedShort(DataInputStream.java:337)
+	at java.io.DataInputStream.readUTF(DataInputStream.java:589)
+	at java.io.DataInputStream.readUTF(DataInputStream.java:564)
+	at com.utilities.safesocket.gson.SafeSocket.receiveAesKey(SafeSocket.java:178)
+	at com.utilities.safesocket.gson.SafeServerSocket.exchangeKeys(SafeServerSocket.java:78)
+	at com.utilities.safesocket.gson.SafeServerSocket.<init>(SafeServerSocket.java:39)
+	at com.taskserver.server.AbstractServer.start(AbstractServer.java:51)
+	at com.teconvido.server.TeConvidoServer.main(TeConvidoServer.java:86)
+19/05 13:46:02 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+19/05 13:46:05 | ERROR | SERVIDOR | Error al iniciar el servidor
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:189)
+	at java.net.SocketInputStream.read(SocketInputStream.java:121)
+	at java.net.SocketInputStream.read(SocketInputStream.java:203)
+	at java.io.DataInputStream.readUnsignedShort(DataInputStream.java:337)
+	at java.io.DataInputStream.readUTF(DataInputStream.java:589)
+	at java.io.DataInputStream.readUTF(DataInputStream.java:564)
+	at com.utilities.safesocket.gson.SafeSocket.receiveAesKey(SafeSocket.java:182)
+	at com.utilities.safesocket.gson.SafeServerSocket.exchangeKeys(SafeServerSocket.java:78)
+	at com.utilities.safesocket.gson.SafeServerSocket.<init>(SafeServerSocket.java:39)
+	at com.taskserver.server.AbstractServer.start(AbstractServer.java:51)
+	at com.teconvido.server.TeConvidoServer.main(TeConvidoServer.java:86)
+19/05 13:46:53 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+19/05 13:46:56 | ERROR | SERVIDOR | Error al iniciar el servidor
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:189)
+	at java.net.SocketInputStream.read(SocketInputStream.java:121)
+	at java.net.SocketInputStream.read(SocketInputStream.java:203)
+	at java.io.DataInputStream.readUnsignedShort(DataInputStream.java:337)
+	at java.io.DataInputStream.readUTF(DataInputStream.java:589)
+	at java.io.DataInputStream.readUTF(DataInputStream.java:564)
+	at com.utilities.safesocket.gson.SafeSocket.receiveAesKey(SafeSocket.java:184)
+	at com.utilities.safesocket.gson.SafeServerSocket.exchangeKeys(SafeServerSocket.java:78)
+	at com.utilities.safesocket.gson.SafeServerSocket.<init>(SafeServerSocket.java:39)
+	at com.taskserver.server.AbstractServer.start(AbstractServer.java:51)
+	at com.teconvido.server.TeConvidoServer.main(TeConvidoServer.java:86)
+19/05 13:47:26 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+19/05 13:47:29 | ERROR | SERVIDOR | Error al iniciar el servidor
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:189)
+	at java.net.SocketInputStream.read(SocketInputStream.java:121)
+	at java.net.SocketInputStream.read(SocketInputStream.java:203)
+	at java.io.DataInputStream.readUnsignedShort(DataInputStream.java:337)
+	at java.io.DataInputStream.readUTF(DataInputStream.java:589)
+	at java.io.DataInputStream.readUTF(DataInputStream.java:564)
+	at com.utilities.safesocket.gson.SafeSocket.receiveAesKey(SafeSocket.java:184)
+	at com.utilities.safesocket.gson.SafeServerSocket.exchangeKeys(SafeServerSocket.java:78)
+	at com.utilities.safesocket.gson.SafeServerSocket.<init>(SafeServerSocket.java:39)
+	at com.taskserver.server.AbstractServer.start(AbstractServer.java:51)
+	at com.teconvido.server.TeConvidoServer.main(TeConvidoServer.java:86)
+19/05 13:48:08 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+19/05 13:48:11 | ERROR | SERVIDOR | Error al iniciar el servidor
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:189)
+	at java.net.SocketInputStream.read(SocketInputStream.java:121)
+	at java.net.SocketInputStream.read(SocketInputStream.java:203)
+	at java.io.DataInputStream.readUnsignedShort(DataInputStream.java:337)
+	at java.io.DataInputStream.readUTF(DataInputStream.java:589)
+	at java.io.DataInputStream.readUTF(DataInputStream.java:564)
+	at com.utilities.safesocket.gson.SafeSocket.receiveAesKey(SafeSocket.java:186)
+	at com.utilities.safesocket.gson.SafeServerSocket.exchangeKeys(SafeServerSocket.java:78)
+	at com.utilities.safesocket.gson.SafeServerSocket.<init>(SafeServerSocket.java:39)
+	at com.taskserver.server.AbstractServer.start(AbstractServer.java:51)
+	at com.teconvido.server.TeConvidoServer.main(TeConvidoServer.java:86)
+19/05 13:50:21 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+19/05 13:52:38 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+19/05 13:55:40 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+19/05 14:01:26 | ERROR | SERVIDOR | Error al iniciar el servidor
+java.net.BindException: Address already in use: JVM_Bind
+	at java.net.DualStackPlainSocketImpl.bind0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketBind(DualStackPlainSocketImpl.java:106)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:376)
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:190)
+	at java.net.ServerSocket.bind(ServerSocket.java:376)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at java.net.ServerSocket.<init>(ServerSocket.java:128)
+	at com.taskserver.server.AbstractServer.<init>(AbstractServer.java:41)
+	at com.teconvido.server.TeConvidoServer.<init>(TeConvidoServer.java:48)
+	at com.teconvido.server.TeConvidoServer.main(TeConvidoServer.java:84)
+19/05 14:01:32 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+19/05 14:05:51 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+19/05 14:06:52 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+19/05 14:09:24 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+19/05 14:34:31 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+19/05 14:36:14 | ERROR | SERVIDOR | Error al iniciar el servidor
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(SocketInputStream.java:189)
+	at java.net.SocketInputStream.read(SocketInputStream.java:121)
+	at java.net.SocketInputStream.read(SocketInputStream.java:203)
+	at java.io.ObjectInputStream$PeekInputStream.peek(ObjectInputStream.java:2291)
+	at java.io.ObjectInputStream$BlockDataInputStream.readBlockHeader(ObjectInputStream.java:2471)
+	at java.io.ObjectInputStream$BlockDataInputStream.refill(ObjectInputStream.java:2541)
+	at java.io.ObjectInputStream$BlockDataInputStream.read(ObjectInputStream.java:2613)
+	at java.io.DataInputStream.readUnsignedShort(DataInputStream.java:337)
+	at java.io.ObjectInputStream$BlockDataInputStream.readUnsignedShort(ObjectInputStream.java:2806)
+	at java.io.ObjectInputStream$BlockDataInputStream.readUTF(ObjectInputStream.java:2862)
+	at java.io.ObjectInputStream.readUTF(ObjectInputStream.java:1070)
+	at com.utilities.safesocket.gson.SafeSocket.receiveAesKey(SafeSocket.java:189)
+	at com.utilities.safesocket.gson.SafeServerSocket.exchangeKeys(SafeServerSocket.java:78)
+	at com.utilities.safesocket.gson.SafeServerSocket.<init>(SafeServerSocket.java:39)
+	at com.taskserver.server.AbstractServer.start(AbstractServer.java:51)
+	at com.teconvido.server.TeConvidoServer.main(TeConvidoServer.java:86)
+19/05 18:01:05 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+19/05 18:05:21 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+19/05 18:05:26 | INFO  | ACCESO | IP : /127.0.0.1:61696 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: com.teconvido.bd.modelo.User[ login=null ]
+19/05 18:30:43 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+19/05 18:30:54 | INFO  | ACCESO | IP : /127.0.0.1:62224 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: com.teconvido.bd.modelo.User[ login=null ]
+19/05 18:50:52 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+19/05 18:51:00 | INFO  | ACCESO | IP : /127.0.0.1:62733 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: com.teconvido.bd.modelo.User[ login=null ]
+19/05 19:25:41 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+20/05 11:42:47 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+20/05 11:44:17 | ERROR | SERVIDOR | Error al iniciar el servidor
+java.net.BindException: Address already in use: JVM_Bind
+	at java.net.DualStackPlainSocketImpl.bind0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketBind(DualStackPlainSocketImpl.java:106)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:376)
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:190)
+	at java.net.ServerSocket.bind(ServerSocket.java:376)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at java.net.ServerSocket.<init>(ServerSocket.java:128)
+	at com.taskserver.server.AbstractServer.<init>(AbstractServer.java:38)
+	at com.teconvido.server.TeConvidoServer.<init>(TeConvidoServer.java:52)
+	at com.teconvido.server.TeConvidoServer.main(TeConvidoServer.java:88)
+20/05 11:44:23 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+20/05 11:45:16 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+20/05 11:45:59 | ERROR | SERVIDOR | Error al iniciar el servidor
+java.net.BindException: Address already in use: JVM_Bind
+	at java.net.DualStackPlainSocketImpl.bind0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketBind(DualStackPlainSocketImpl.java:106)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:376)
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:190)
+	at java.net.ServerSocket.bind(ServerSocket.java:376)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at java.net.ServerSocket.<init>(ServerSocket.java:128)
+	at com.taskserver.server.AbstractServer.<init>(AbstractServer.java:38)
+	at com.teconvido.server.TeConvidoServer.<init>(TeConvidoServer.java:52)
+	at com.teconvido.server.TeConvidoServer.main(TeConvidoServer.java:88)
+20/05 11:46:08 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+20/05 11:48:29 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+20/05 11:50:59 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+20/05 11:51:55 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+20/05 11:52:27 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+20/05 11:55:59 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+20/05 11:57:04 | ERROR | SERVIDOR | Error al iniciar el servidor
+java.net.BindException: Address already in use: JVM_Bind
+	at java.net.DualStackPlainSocketImpl.bind0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketBind(DualStackPlainSocketImpl.java:106)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:376)
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:190)
+	at java.net.ServerSocket.bind(ServerSocket.java:376)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at java.net.ServerSocket.<init>(ServerSocket.java:128)
+	at com.taskserver.server.AbstractServer.<init>(AbstractServer.java:38)
+	at com.teconvido.server.TeConvidoServer.<init>(TeConvidoServer.java:52)
+	at com.teconvido.server.TeConvidoServer.main(TeConvidoServer.java:88)
+20/05 11:57:11 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+20/05 11:57:49 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+20/05 11:58:11 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+20/05 11:59:40 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+20/05 12:01:24 | ERROR | SERVIDOR | Error al iniciar el servidor
+java.net.BindException: Address already in use: JVM_Bind
+	at java.net.DualStackPlainSocketImpl.bind0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketBind(DualStackPlainSocketImpl.java:106)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:376)
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:190)
+	at java.net.ServerSocket.bind(ServerSocket.java:376)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at java.net.ServerSocket.<init>(ServerSocket.java:128)
+	at com.taskserver.server.AbstractServer.<init>(AbstractServer.java:38)
+	at com.teconvido.server.TeConvidoServer.<init>(TeConvidoServer.java:52)
+	at com.teconvido.server.TeConvidoServer.main(TeConvidoServer.java:88)
+20/05 12:01:34 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+20/05 12:04:12 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+20/05 12:13:55 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+20/05 12:14:49 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+20/05 12:17:14 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+20/05 12:17:32 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+20/05 12:18:39 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+20/05 12:19:01 | ERROR | SERVIDOR | Error al iniciar el servidor
+java.net.BindException: Address already in use: JVM_Bind
+	at java.net.DualStackPlainSocketImpl.bind0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketBind(DualStackPlainSocketImpl.java:106)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:376)
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:190)
+	at java.net.ServerSocket.bind(ServerSocket.java:376)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at java.net.ServerSocket.<init>(ServerSocket.java:128)
+	at com.taskserver.server.AbstractServer.<init>(AbstractServer.java:38)
+	at com.teconvido.server.TeConvidoServer.<init>(TeConvidoServer.java:52)
+	at com.teconvido.server.TeConvidoServer.main(TeConvidoServer.java:88)
+20/05 12:19:12 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+20/05 12:19:51 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+20/05 12:21:06 | ERROR | SERVIDOR | Error al iniciar el servidor
+java.net.BindException: Address already in use: JVM_Bind
+	at java.net.DualStackPlainSocketImpl.bind0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketBind(DualStackPlainSocketImpl.java:106)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:376)
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:190)
+	at java.net.ServerSocket.bind(ServerSocket.java:376)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at java.net.ServerSocket.<init>(ServerSocket.java:128)
+	at com.taskserver.server.AbstractServer.<init>(AbstractServer.java:38)
+	at com.teconvido.server.TeConvidoServer.<init>(TeConvidoServer.java:52)
+	at com.teconvido.server.TeConvidoServer.main(TeConvidoServer.java:88)
+20/05 12:21:11 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+20/05 12:32:50 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+20/05 12:33:27 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+20/05 12:34:42 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+20/05 13:27:34 | ERROR | SERVIDOR | Error al iniciar el servidor
+java.net.BindException: Address already in use: JVM_Bind
+	at java.net.DualStackPlainSocketImpl.bind0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketBind(DualStackPlainSocketImpl.java:106)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:376)
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:190)
+	at java.net.ServerSocket.bind(ServerSocket.java:376)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at java.net.ServerSocket.<init>(ServerSocket.java:128)
+	at com.taskserver.server.AbstractServer.<init>(AbstractServer.java:38)
+	at com.teconvido.server.TeConvidoServer.<init>(TeConvidoServer.java:51)
+	at com.teconvido.server.TeConvidoServer.main(TeConvidoServer.java:87)
+20/05 13:27:40 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+20/05 13:29:26 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+20/05 13:33:42 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+20/05 13:35:52 | ERROR | SERVIDOR | Error al iniciar el servidor
+java.net.BindException: Address already in use: JVM_Bind
+	at java.net.DualStackPlainSocketImpl.bind0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketBind(DualStackPlainSocketImpl.java:106)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:376)
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:190)
+	at java.net.ServerSocket.bind(ServerSocket.java:376)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at java.net.ServerSocket.<init>(ServerSocket.java:128)
+	at com.taskserver.server.AbstractServer.<init>(AbstractServer.java:38)
+	at com.teconvido.server.TeConvidoServer.<init>(TeConvidoServer.java:51)
+	at com.teconvido.server.TeConvidoServer.main(TeConvidoServer.java:87)
+20/05 13:35:58 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+20/05 13:37:16 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+20/05 13:38:52 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+20/05 13:43:21 | ERROR | SERVIDOR | Error al iniciar el servidor
+java.net.BindException: Address already in use: JVM_Bind
+	at java.net.DualStackPlainSocketImpl.bind0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketBind(DualStackPlainSocketImpl.java:106)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:376)
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:190)
+	at java.net.ServerSocket.bind(ServerSocket.java:376)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at java.net.ServerSocket.<init>(ServerSocket.java:128)
+	at com.taskserver.server.AbstractServer.<init>(AbstractServer.java:38)
+	at com.teconvido.server.TeConvidoServer.<init>(TeConvidoServer.java:51)
+	at com.teconvido.server.TeConvidoServer.main(TeConvidoServer.java:87)
+20/05 13:43:29 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+20/05 13:43:32 | ERROR | ACCESO | IP : /127.0.0.1:58869 | ACCION: GetElement | java.lang.ClassCastException: com.google.gson.internal.LinkedTreeMap cannot be cast to com.teconvido.bd.modelo.User
+21/05 11:30:08 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+21/05 11:30:15 | ERROR | ACCESO | IP : /127.0.0.1:53434 | ACCION: GetElement | com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected a string but was BEGIN_OBJECT at line 1 column 2
+21/05 11:44:18 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+21/05 11:44:24 | ERROR | ACCESO | IP : /127.0.0.1:53823 | ACCION: GetElement | com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected a string but was BEGIN_OBJECT at line 1 column 2
+21/05 11:54:41 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+21/05 11:54:49 | INFO  | ACCESO | IP : /127.0.0.1:53965 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+21/05 11:56:48 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+21/05 11:56:53 | INFO  | ACCESO | IP : /127.0.0.1:53991 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+21/05 11:58:06 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+21/05 11:58:10 | INFO  | ACCESO | IP : /127.0.0.1:54009 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+21/05 11:59:56 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+21/05 12:00:01 | INFO  | ACCESO | IP : /127.0.0.1:54036 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}

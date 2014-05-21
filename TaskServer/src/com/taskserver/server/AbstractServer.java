@@ -15,24 +15,21 @@
  */
 package com.taskserver.server;
 
-import com.utilities.safesocket.SafeServerSocket;
-import com.utilities.safesocket.SafeSocket;
 import java.io.IOException;
 import java.net.ServerSocket;
-import java.net.Socket;
 
 
 /**
  * AbstractServer.java
  * @author Alejandro Silva
  */
-public abstract class AbstractServer<T>
+public abstract class AbstractServer
 {
     
     public static final int DEFAULT_PORT = 20000;
     
-    private AbstractTaskManager manager;
-    private ServerSocket server ;
+    protected AbstractTaskManager manager;
+    protected ServerSocket server ;
     
     public AbstractServer(int port,AbstractTaskManager manager) 
     throws IOException{
@@ -41,14 +38,9 @@ public abstract class AbstractServer<T>
         server = new ServerSocket(port);
     }
     
-    public void start() throws IOException{
-        
-        Socket client;
-
-        while(true){
-            client = server.accept();
-            SafeSocket communication = new SafeServerSocket(client);
-            manager.addTask(new ThreadRequests<T>(manager,communication));
-        }
+    public AbstractServer(AbstractTaskManager manager) throws IOException{
+        this(DEFAULT_PORT,manager);
     }
+    
+    public abstract void start() throws IOException;
 }

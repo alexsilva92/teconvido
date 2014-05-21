@@ -15,7 +15,7 @@
  */
 package com.taskserver.server;
 
-import com.utilities.safesocket.SafeSocket;
+import com.utilities.communication.socket.CommunicationSocket;
 
 
 /**
@@ -23,6 +23,6 @@ import com.utilities.safesocket.SafeSocket;
  * @author Alejandro Silva
  */
 public interface TaskBuilder {
-    public ThreadRequests createTask(AbstractTaskManager manager,
-            SafeSocket communication);
+    public AbstractThreadRequests createTask(AbstractTaskManager manager,
+            CommunicationSocket communication);
 }

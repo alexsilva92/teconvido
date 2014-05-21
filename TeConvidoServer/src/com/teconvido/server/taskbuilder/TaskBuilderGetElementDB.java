@@ -15,14 +15,12 @@
  */
 package com.teconvido.server.taskbuilder;
 
-import com.taskserver.db.exception.UnimplementedQueryException;
 import com.taskserver.server.AbstractTaskManager;
 import com.taskserver.server.TaskBuilder;
-import com.taskserver.server.ThreadRequests;
+import com.taskserver.server.AbstractThreadRequests;
 import com.teconvido.common.TeConvidoConstantDB;
 import com.teconvido.server.TaskManager;
-import com.utilities.safesocket.SafeSocket;
-import java.io.IOException;
+import com.utilities.communication.socket.CommunicationSocket;
 import org.apache.log4j.Logger;
 
 /**
@@ -33,11 +31,11 @@ public class TaskBuilderGetElementDB implements TaskBuilder{
     private static final Logger logger = 
             Logger.getLogger(TaskGetElementDB.class);
     
-    public class TaskGetElementDB extends ThreadRequests
+    public class TaskGetElementDB extends AbstractThreadRequests
     implements TeConvidoConstantDB {       
        
         public TaskGetElementDB(AbstractTaskManager manager, 
-        SafeSocket communication) {
+        CommunicationSocket communication) {
             super(manager,communication);
         }
 
@@ -45,11 +43,11 @@ public class TaskBuilderGetElementDB implements TaskBuilder{
         public Integer call() {
 
             try {
-                GetDB typeGet = (GetDB) communication.receive();
-                Object search = communication.receive();
+                GetDB typeGet = communication.receive(GetDB.class);
+                String search = communication.receive(String.class);
 
                 
-                Object result = ((TaskManager)manager).
+                String result = ((TaskManager)manager).
                         getManagerDB().get(typeGet,search);
 
                 logger.info("ACCESO | IP : " + communication.getSocket().
@@ -60,7 +58,7 @@ public class TaskBuilderGetElementDB implements TaskBuilder{
 
                 communication.close();
                 
-            } catch (UnimplementedQueryException | IOException ex) {
+            } catch (Exception ex) {
                 logger.error("ACCESO | IP : " + communication.getSocket().
                         getRemoteSocketAddress().toString() + 
                         " | ACCION: GetElement | " + ex);
@@ -71,8 +69,8 @@ public class TaskBuilderGetElementDB implements TaskBuilder{
      }
     
      @Override
-     public ThreadRequests createTask(AbstractTaskManager manager, 
-     SafeSocket communication){
+     public AbstractThreadRequests createTask(AbstractTaskManager manager, 
+     CommunicationSocket communication){
          return new TaskGetElementDB(manager,communication);
      } 
 }

@@ -15,8 +15,7 @@
  */
 package com.taskserver.server;
 
-import com.utilities.safesocket.SafeSocket;
-import com.taskserver.db.AbstractManagerDB;
+import com.utilities.communication.socket.CommunicationSocket;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Callable;
@@ -47,7 +46,8 @@ public abstract class AbstractTaskManager<T> {
     
     protected abstract void initializeTaskBuilders();
 
-    public synchronized void addTask(T typeService,SafeSocket communication){      
+    public synchronized void addTask(T typeService,
+    CommunicationSocket communication){    
         poolThreads.submit(taskBuilders.get(typeService).createTask(
                 this,communication));
     }

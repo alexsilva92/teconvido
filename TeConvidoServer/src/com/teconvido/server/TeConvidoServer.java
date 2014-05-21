@@ -17,10 +17,12 @@ package com.teconvido.server;
 
 import com.taskserver.server.AbstractServer;
 import com.taskserver.server.AbstractTaskManager;
-import com.teconvido.common.TypeServiceServer;
 import com.teconvido.db.ManagerDB;
+import com.utilities.communication.socket.safesocket.gson.SafeServerSocket;
+import com.utilities.communication.socket.safesocket.gson.SafeSocket;
 import com.utilities.cryptor.CryptorException;
 import java.io.IOException;
+import java.net.Socket;
 import javax.xml.bind.JAXBException;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
@@ -30,9 +32,10 @@ import org.apache.log4j.PropertyConfigurator;
  * Server.java
  * @author Alejandro Silva
  */
-public class TeConvidoServer extends AbstractServer<TypeServiceServer>{
+public class TeConvidoServer extends AbstractServer{
     
-    private static final Logger LOOGER = Logger.getLogger(TeConvidoServer.class);
+    private static final Logger LOOGER = Logger.getLogger(
+            TeConvidoServer.class);
     
     private static final String SERVER_LOGGER_PROPERTIES = 
             "logger/server.logger.properties";
@@ -88,5 +91,16 @@ public class TeConvidoServer extends AbstractServer<TypeServiceServer>{
             LOOGER.error("SERVIDOR | Error al iniciar el servidor", ex);
             System.exit(-1);
         }        
+    }
+
+    @Override
+    public void start() throws IOException {
+        Socket client;
+        
+        while(true){
+            client = server.accept();
+            SafeSocket communication = new SafeServerSocket(client);
+            manager.addTask(new ThreadRequests(manager,communication));
+        }
     }
 }

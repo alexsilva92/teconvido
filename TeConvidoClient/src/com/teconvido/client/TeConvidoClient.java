@@ -10,7 +10,8 @@ import com.teconvido.bd.modelo.User;
 import com.teconvido.common.TeConvidoConstantDB;
 import com.teconvido.common.TypeNotificationPush;
 import com.teconvido.common.TypeServiceServer;
-import com.utilities.safesocket.SafeClientSocket;
+import com.utilities.communication.socket.safesocket.gson.SafeClientSocket;
+import com.utilities.gson.GsonS;
 import java.io.IOException;
 
 /**
@@ -32,12 +33,13 @@ public class TeConvidoClient implements TeConvidoConstantDB{
         User user = new User();
         user.setEmail(email);
         user.setPassword(password);
-        
+
         socket.send(TypeServiceServer.GET_ELEMENT);
         socket.send(GetDB.IS_CORRECT_LOGIN);
-        socket.send(user);
+        socket.send(GsonS.getGson().toJson(user));
         
-        return(boolean) socket.receive();  
+        return GsonS.getGson().fromJson(socket.receive(String.class), 
+                Boolean.class); 
     }
     
     public boolean insertClient(User user) throws IOException{
@@ -45,9 +47,10 @@ public class TeConvidoClient implements TeConvidoConstantDB{
         
         socket.send(TypeServiceServer.INSERT_ELEMENT);
         socket.send(InsertDB.INSERT_USER);
-        socket.send(user);
+        socket.send(GsonS.getGson().toJson(user));
         
-        return(boolean) socket.receive();
+        return GsonS.getGson().fromJson(socket.receive(String.class), 
+                Boolean.class); 
     }
     
     public boolean updateGcmCode(String email, String gcmCode) 
@@ -59,9 +62,11 @@ public class TeConvidoClient implements TeConvidoConstantDB{
         socket.send(email);
         socket.send(gcmCode);
         
-        return(boolean) socket.receive();
+        return GsonS.getGson().fromJson(socket.receive(String.class), 
+                Boolean.class);
     }
     
+    @Deprecated
     public boolean sendNotificationPush(String login,TypeNotificationPush type, 
     String message) throws IOException{
         SafeClientSocket socket = new SafeClientSocket(host,port);
@@ -71,12 +76,14 @@ public class TeConvidoClient implements TeConvidoConstantDB{
         socket.send(type);
         socket.send(message);
         
-        return(boolean) socket.receive();  
+        return GsonS.getGson().fromJson(socket.receive(String.class), 
+                Boolean.class);
     }
     
     
     public static void main(String[] argv) throws IOException{
         TeConvidoClient client = new TeConvidoClient("localhost",20000);
-        System.out.println(client.sendNotificationPush("xperiaS", TypeNotificationPush.STANDARD, "Pato"));
+        //System.out.println(client.sendNotificationPush("xperiaJ", TypeNotificationPush.STANDARD, "Pato"));
+        System.out.println(client.login("alexsilva792@gmail.com", "65111992"));
     }
 }

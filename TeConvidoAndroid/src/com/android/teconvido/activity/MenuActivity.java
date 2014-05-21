@@ -9,6 +9,7 @@ import com.android.teconvido.menu.ContainerMenu.ItemMenu;
 import com.android.teconvido.menu.ContainerMenu.KeyMenu;
 
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,8 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.app.ActionBar;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 
 
 public class MenuActivity extends AbstractTopMenuActivity {
@@ -45,7 +48,7 @@ public class MenuActivity extends AbstractTopMenuActivity {
 	    private ContainerMenu containerMenu;
 
 	    public MenuAdapter() {
-	    	
+	    	super();
 	        containerMenu = new ContainerMenu(context);
 	        items = new ArrayList<ItemMenu>();
 	        items.add(containerMenu.getItemMenu(KeyMenu.SEARCH_TRAVELS));
@@ -84,5 +87,35 @@ public class MenuActivity extends AbstractTopMenuActivity {
 		public long getItemId(int position) {
 			return position;
 		}
+	}
+	
+	@Override
+	protected void pushButtonHome(){}
+	
+	@Override
+	protected boolean isEnableButtonHome(){
+	    return false;
+	}
+	
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event){
+		if ((keyCode == KeyEvent.KEYCODE_BACK)){	
+			AlertDialog.Builder sessionDialog = new AlertDialog.Builder(this);  
+			sessionDialog.setTitle(getString(R.string.session_close_title));  
+	        sessionDialog.setMessage(getString(R.string.session_close_message));            
+	        sessionDialog.setCancelable(true);  
+	        sessionDialog.setPositiveButton(getString(R.string.confirm), new DialogInterface.OnClickListener() {  
+	            public void onClick(DialogInterface dialog, int id) {  
+	                finish();
+	            }  
+	        });  
+	        sessionDialog.setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {  
+	            public void onClick(DialogInterface dialog, int id) {  }  
+	        });            
+	        sessionDialog.show();
+			return true;
+		}
+
+		return super.onKeyDown(keyCode, event);
 	}
 }

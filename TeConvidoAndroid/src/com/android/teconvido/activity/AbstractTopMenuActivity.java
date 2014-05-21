@@ -5,12 +5,11 @@ import com.android.teconvido.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 public abstract class AbstractTopMenuActivity extends Activity {
-    
+	
 	protected static AbstractTopMenuActivity context;
 	private MenuItem itemAlert;
 	private MenuItem itemMessages;
@@ -22,14 +21,16 @@ public abstract class AbstractTopMenuActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		context = this;
+		getActionBar().setDisplayHomeAsUpEnabled(isEnableButtonHome());
 	}
 	
 	@Override
 	protected void onResume() {
-		context = this;
-		
 		super.onResume();
-		Log.d("TeConvido", "onResume -  is Alert:" + isAlert);
+		
+		if(context != this)
+			context = this;
 		
 		setAlert(AbstractTopMenuActivity.getInstance().isAlert);
 		setMessages(AbstractTopMenuActivity.getInstance().isMessages);
@@ -38,23 +39,33 @@ public abstract class AbstractTopMenuActivity extends Activity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 	    switch (item.getItemId()) {
+	    	case android.R.id.home:
+	    		pushButtonHome();
+	    		return true;
 	    	case R.id.Alert:
 	    		Intent alert = new Intent(context,AlertActivity.class);
 	    		alert.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | 
 	    					   Intent.FLAG_ACTIVITY_SINGLE_TOP);
 				startActivity(alert);
-				break;
+				return true;
 	    	case R.id.Message:
 	    		Intent message = new Intent(context,MessageActivity.class);
 	    		message.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | 
  					   Intent.FLAG_ACTIVITY_SINGLE_TOP);
 				startActivity(message);
-				break;
+				return true;
+			default:
+				 return super.onOptionsItemSelected(item);				
 	    }
-	    return super.onOptionsItemSelected(item);
 	}
 	
+	protected void pushButtonHome(){
+	    finish();
+	}
 	
+	protected boolean isEnableButtonHome(){
+	    return true;
+	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

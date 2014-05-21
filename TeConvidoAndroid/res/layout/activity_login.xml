@@ -72,7 +72,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/margin_top_login"
-                    android:hint="@string/login_title_email"
+                    android:hint="@string/login_label_email"
                     android:inputType="textEmailAddress"
                     android:textSize="18sp"
                     android:typeface="sans" />
@@ -82,7 +82,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/margin_top_login"
-                    android:hint="@string/login_title_password"
+                    android:hint="@string/login_label_password"
                     android:inputType="textPassword"
                     android:textSize="18sp"
                     android:typeface="sans" />

@@ -17,10 +17,10 @@ package com.teconvido.server.taskbuilder;
 
 import com.taskserver.server.AbstractTaskManager;
 import com.taskserver.server.TaskBuilder;
-import com.taskserver.server.ThreadRequests;
+import com.taskserver.server.AbstractThreadRequests;
 import com.teconvido.common.TeConvidoConstantDB;
 import com.teconvido.server.TaskManager;
-import com.utilities.safesocket.SafeSocket;
+import com.utilities.communication.socket.CommunicationSocket;
 import java.io.IOException;
 import org.apache.log4j.Logger;
 
@@ -32,11 +32,11 @@ public class TaskBuilderUpdateElementDB implements TaskBuilder{
     private static final Logger logger = 
             Logger.getLogger(TaskUpdateElementDB.class);
     
-    public class TaskUpdateElementDB extends ThreadRequests 
+    public class TaskUpdateElementDB extends AbstractThreadRequests 
     implements TeConvidoConstantDB {       
        
         public TaskUpdateElementDB(AbstractTaskManager manager, 
-                SafeSocket communication) {
+                CommunicationSocket communication) {
             super(manager,communication);
         }
 
@@ -44,12 +44,12 @@ public class TaskBuilderUpdateElementDB implements TaskBuilder{
         public Integer call() {
 
             try {
-                UpdateDB typeUpdate = (UpdateDB) communication.receive();
-                Object search = communication.receive();
-                Object element = communication.receive();
+                UpdateDB typeUpdate = communication.receive(UpdateDB.class);
+                String search = communication.receive(String.class);
+                String element = communication.receive(String.class);
             
                 try{
-                Object result = ((TaskManager)manager).getManagerDB().update(
+                String result = ((TaskManager)manager).getManagerDB().update(
                         typeUpdate,search,element);
 
                 logger.info("ACCESO | IP : " + communication.getSocket().
@@ -74,8 +74,8 @@ public class TaskBuilderUpdateElementDB implements TaskBuilder{
      }
     
      @Override
-     public ThreadRequests createTask(AbstractTaskManager manager, 
-     SafeSocket communication){
+     public AbstractThreadRequests createTask(AbstractTaskManager manager, 
+     CommunicationSocket communication){
          return new TaskUpdateElementDB(manager,communication);
      } 
 }

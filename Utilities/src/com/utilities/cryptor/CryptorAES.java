@@ -29,21 +29,21 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.KeyGenerator;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
+
 
 
 /**
  * CryptorAES.java
  * @author Alejandro Silva
- * @author Félix Serna
  * EncriptadorAES
  */
 public class CryptorAES {
-    private static String ALGORITHM_KG = "AES";
-    private static String ALGORITHM_CRYPT = "AES/ECB/PKCS5Padding";
+    private static final String ALGORITHM_KG = "AES";
+    private static final String ALGORITHM_CRYPT = "AES/ECB/PKCS5Padding";
     private Cipher cipher;
     private KeyGenerator keygen;
     private SecretKey key;
-    private byte[] keyBytes;
     
     /**
      * Constructor que recibe la ruta del fichero donde guardara la 
@@ -53,7 +53,7 @@ public class CryptorAES {
     public CryptorAES() throws CryptorException{
         try {
             keygen = KeyGenerator.getInstance(ALGORITHM_KG);
-            key = keygen.generateKey();            
+            key = keygen.generateKey();      
             cipher = Cipher.getInstance(ALGORITHM_CRYPT); 
         } catch (NoSuchPaddingException | NoSuchAlgorithmException ex) {
             throw new CryptorException(ex);
@@ -64,22 +64,8 @@ public class CryptorAES {
      * getSecretKey
      * @return key en bytes
      */
-    public byte[] getSecretKey(){
-        if(keyBytes == null){
-            try {
-                ByteArrayOutputStream bs= new ByteArrayOutputStream();
-                ObjectOutputStream os = new ObjectOutputStream(bs);
-                
-                os.writeObject(key);
-                keyBytes = bs.toByteArray();
-                
-                bs.close();
-                os.close();
-                
-            } catch (IOException ex) { throw new RuntimeException(ex); }
-        }
-        
-        return keyBytes;
+    public byte[] getSecretKey(){  
+        return key.getEncoded();
     }
 
     /**
@@ -88,17 +74,7 @@ public class CryptorAES {
      * @throws CryptorException 
      */
     public void setSecretKey(byte[] _key) throws CryptorException{
-        try {
-            ObjectInputStream is = new ObjectInputStream(
-                    new ByteArrayInputStream(_key));
-            
-            key = (SecretKey) is.readObject();
-            
-            is.close();
-            
-        } catch (ClassNotFoundException ex){ throw new CryptorException(ex);
-        } catch(IOException ex) {throw new RuntimeException(ex); }
-        
+         key = new SecretKeySpec(_key, 0, _key.length, ALGORITHM_KG);
     }
     
     /**
@@ -116,7 +92,25 @@ public class CryptorAES {
             throw new CryptorException(ex); 
         }
     }
+   
+    /**
+     * Desencripta bytes con la clave AES
+     * @param crypted
+     * @return bytes desencriptados
+     * @throws CryptorException 
+     */
+    public byte[] decrypt (byte[] crypted) throws CryptorException{   
+        try {     
+            cipher.init(Cipher.DECRYPT_MODE, key);
+            
+            return cipher.doFinal(crypted);
+        } catch (IllegalBlockSizeException | BadPaddingException 
+                 | InvalidKeyException ex) {
+            throw new CryptorException(ex);
+        }
+    }
     
+        
     /**
      * Cripta objetos serializables con la clave AES
      * @param _object
@@ -136,33 +130,6 @@ public class CryptorAES {
             
             return bytesCrypt;  
         } catch (IOException ex) { throw new RuntimeException(ex); }
-    }
-    
-    /**
-     * Cripta una String con la clave AES
-     * @param _txt
-     * @return bytes criptados
-     * @throws CryptorException 
-     */
-    public byte[] encrypt(String _txt) throws CryptorException { 
-        return encrypt(_txt.getBytes());
-    }
-    
-    /**
-     * Desencripta bytes con la clave AES
-     * @param crypted
-     * @return bytes desencriptados
-     * @throws CryptorException 
-     */
-    public byte[] decrypt (byte[] crypted) throws CryptorException{   
-        try {     
-            cipher.init(Cipher.DECRYPT_MODE, key);
-            
-            return cipher.doFinal(crypted);
-        } catch (IllegalBlockSizeException | BadPaddingException 
-                 | InvalidKeyException ex) {
-            throw new CryptorException(ex);
-        }
     }
     
     /**
@@ -186,18 +153,5 @@ public class CryptorAES {
         } catch (ClassNotFoundException | IOException ex) {
             throw new RuntimeException(ex);
         }
-    }
-    
-    /**
-     * Desencripta bytes y forma una string a partir de esos bytes 
-     * desencriptados.
-     * @param crypted
-     * @return string desencriptada
-     * @throws CryptorException 
-     */
-    public String decryptString(byte[] crypted) throws CryptorException{       
-        String txtDescrypt = new String (decrypt(crypted));
-              
-        return txtDescrypt;
     }
 }

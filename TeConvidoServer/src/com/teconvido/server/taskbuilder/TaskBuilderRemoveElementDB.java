@@ -17,11 +17,11 @@ package com.teconvido.server.taskbuilder;
 
 import com.taskserver.server.AbstractTaskManager;
 import com.taskserver.server.TaskBuilder;
-import com.taskserver.server.ThreadRequests;
+import com.taskserver.server.AbstractThreadRequests;
 import com.teconvido.common.TeConvidoConstantDB;
 import com.teconvido.common.TeConvidoConstantDB.RemoveDB;
 import com.teconvido.server.TaskManager;
-import com.utilities.safesocket.SafeSocket;
+import com.utilities.communication.socket.CommunicationSocket;
 import java.io.IOException;
 import org.apache.log4j.Logger;
 
@@ -33,11 +33,11 @@ public class TaskBuilderRemoveElementDB implements TaskBuilder{
     private static final Logger logger = 
             Logger.getLogger(TaskRemoveElementDB.class);
     
-    public class TaskRemoveElementDB extends ThreadRequests 
+    public class TaskRemoveElementDB extends AbstractThreadRequests 
     implements TeConvidoConstantDB {       
        
         public TaskRemoveElementDB(AbstractTaskManager manager, 
-                SafeSocket communication) {
+                CommunicationSocket communication) {
             super(manager,communication);
         }
 
@@ -45,11 +45,11 @@ public class TaskBuilderRemoveElementDB implements TaskBuilder{
         public Integer call() {
 
             try {
-                RemoveDB typeRemove = (RemoveDB) communication.receive();
-                Object element = communication.receive();
+                RemoveDB typeRemove = communication.receive(RemoveDB.class);
+                String element = communication.receive(String.class);
             
                 try{
-                Object result = ((TaskManager)manager).getManagerDB().remove(
+                String result = ((TaskManager)manager).getManagerDB().remove(
                         typeRemove,element);
 
                 logger.info("ACCESO | IP : " + communication.getSocket().
@@ -74,8 +74,8 @@ public class TaskBuilderRemoveElementDB implements TaskBuilder{
      }
     
      @Override
-     public ThreadRequests createTask(AbstractTaskManager manager, 
-     SafeSocket communication){
+     public AbstractThreadRequests createTask(AbstractTaskManager manager, 
+     CommunicationSocket communication){
          return new TaskRemoveElementDB(manager,communication);
      } 
 }

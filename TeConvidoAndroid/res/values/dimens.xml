@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="margin_top_login">5dp</dimen>
+    <dimen name="margin_top_search">20dp</dimen>
+    <dimen name="margin_bottom_search">30dp</dimen>
+    <dimen name="margin_bottom_menu">50dp</dimen>
+    <dimen name="margin_top_menu">5dp</dimen>
 </resources>

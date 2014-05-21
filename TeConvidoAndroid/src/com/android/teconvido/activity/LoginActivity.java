@@ -9,7 +9,6 @@ import com.teconvido.client.TeConvidoClient;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -58,7 +57,7 @@ public class LoginActivity extends Activity implements OnClickListener{
             
             preferences = new ApplicationPreferences(context);
             
-            client = new TeConvidoClient(SERVER_HOST,SERVER_PORT);
+            client = new TeConvidoClient("155.210.68.155",20000);
 
             initialization();
 	}
@@ -156,7 +155,6 @@ public class LoginActivity extends Activity implements OnClickListener{
 					return ReturnLogin.INCORRECT;
 				}
 			} catch (IOException e) {
-				Log.d("IOException", e.getMessage());
 				return ReturnLogin.CONNECTION_ERROR;
 			}  
 	    }
