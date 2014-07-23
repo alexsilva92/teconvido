@@ -49,7 +49,7 @@ public class TaskBuilderUpdateElementDB implements TaskBuilder{
                 String element = communication.receive(String.class);
             
                 try{
-                String result = ((TaskManager)manager).getManagerDB().update(
+                String result = ((TaskManager)manager).getManagerRequestDB().update(
                         typeUpdate,search,element);
 
                 logger.info("ACCESO | IP : " + communication.getSocket().

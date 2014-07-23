@@ -17,8 +17,9 @@
 package com.teconvido.communication.googlepush;
 
 import com.teconvido.common.TypeNotificationPush;
+import com.utilities.communication.postrequest.PostParameter;
+import com.utilities.communication.postrequest.PostRequest;
 import java.io.*;
-import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Date;
 import java.util.logging.Level;
@@ -32,10 +33,12 @@ import java.util.logging.Logger;
  */
 public class NotificationPush {
 
-    private static final String GCM_URL = 
-            "https://android.googleapis.com/gcm/send";
+    private static final String GCM_PROTOCOL = "https";
+    private static final String GCM_URL = "android.googleapis.com";
+    private static final String GCM_FILE = "/gcm/send";
+    
     private static final String API_KEY = 
-            "AIzaSyAGrDQ_kuUIaAti5dXsqPtDJ8QsgFvieW4";
+            "key=AIzaSyAGrDQ_kuUIaAti5dXsqPtDJ8QsgFvieW4";
     
     private static final int NOTIFICATION_SEND = 200;
     private static final int INTERNAL_SERVER_ERROR = 500;
@@ -47,38 +50,17 @@ public class NotificationPush {
     
     
     public static ReturnNotificationPush send(String gcmCode,
-    TypeNotificationPush type, String message) throws IOException {        
-            String msg = "registration_id=" + gcmCode +
-                         "&collapse_key=" + new Date().toString() +
-                         "&data.type=" + type.name() +
-                         "&data.msg=" + message;
+    TypeNotificationPush type, String message) throws IOException {      
+        PostParameter parameter = new PostParameter();
+        parameter.setUrl(new URL(GCM_PROTOCOL,GCM_URL,GCM_FILE));
+        parameter.setParameter("registration_id=" + gcmCode +
+                     "&collapse_key=" + new Date().toString() +
+                     "&data.type=" + type.name() +
+                     "&data.msg=" + message);
+        parameter.setAuthorization(API_KEY);
 
-            URL url = new URL(GCM_URL);
-            HttpURLConnection uc = (HttpURLConnection)url.openConnection();
-            uc.setDoOutput(true);
-            uc.setDoInput(true);
-            
-            uc.setRequestMethod("POST");
-            uc.setRequestProperty("Content-Length",
-                    Integer.toString(msg.getBytes().length));
-            uc.setRequestProperty("Content-Type",
-                    "application/x-www-form-urlencoded"); 
-            uc.setRequestProperty("Authorization", "key=" + API_KEY);
-            uc.connect();
-            
-            //enviar el request
-            DataOutputStream out = new DataOutputStream(uc.getOutputStream());
-            out.writeBytes(msg);
-            out.flush();
-            out.close();
-            
-            //recoger el response
-            uc.getErrorStream();
-            int responseCode = uc.getResponseCode();
-           
-            uc.disconnect();
-            
-            return changeEnum(responseCode);
+        
+        return changeEnum(PostRequest.send(parameter).getCode());
     }
     
     private static ReturnNotificationPush changeEnum(int responseCode){

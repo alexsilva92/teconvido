@@ -49,7 +49,7 @@ public class TaskBuilderRemoveElementDB implements TaskBuilder{
                 String element = communication.receive(String.class);
             
                 try{
-                String result = ((TaskManager)manager).getManagerDB().remove(
+                String result = ((TaskManager)manager).getManagerRequestDB().remove(
                         typeRemove,element);
 
                 logger.info("ACCESO | IP : " + communication.getSocket().

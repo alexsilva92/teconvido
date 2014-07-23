@@ -6,6 +6,7 @@
 
 package com.teconvido.client;
 
+import com.teconvido.bd.modelo.TicketLogin;
 import com.teconvido.bd.modelo.User;
 import com.teconvido.common.TeConvidoConstantDB;
 import com.teconvido.common.TypeNotificationPush;
@@ -21,10 +22,18 @@ import java.io.IOException;
 public class TeConvidoClient implements TeConvidoConstantDB{
     private String host;
     private int port;
+    
+    private String email;
+    private String password;
+    private TicketLogin ticket;
 
     public TeConvidoClient(String host, int port) {
         this.host = host;
         this.port = port;
+    }
+    
+    private boolean login() throws IOException{
+        return login(email,password);
     }
     
     public boolean login(String email,String password) throws IOException{
@@ -37,9 +46,13 @@ public class TeConvidoClient implements TeConvidoConstantDB{
         socket.send(TypeServiceServer.GET_ELEMENT);
         socket.send(GetDB.IS_CORRECT_LOGIN);
         socket.send(GsonS.getGson().toJson(user));
-        
-        return GsonS.getGson().fromJson(socket.receive(String.class), 
-                Boolean.class); 
+        ticket = GsonS.getGson().fromJson(socket.receive(String.class),
+                TicketLogin.class);
+        if(ticket != null){
+            this.email = email;
+            this.password = password;
+        }
+        return ticket != null;
     }
     
     public boolean insertClient(User user) throws IOException{
@@ -84,6 +97,7 @@ public class TeConvidoClient implements TeConvidoConstantDB{
     public static void main(String[] argv) throws IOException{
         TeConvidoClient client = new TeConvidoClient("localhost",20000);
         //System.out.println(client.sendNotificationPush("xperiaJ", TypeNotificationPush.STANDARD, "Pato"));
-        System.out.println(client.login("alexsilva792@gmail.com", "65111992"));
+        boolean returnL = client.login("alexsilva792@gmail.com", "65111992");
+        System.out.println(returnL);
     }
 }

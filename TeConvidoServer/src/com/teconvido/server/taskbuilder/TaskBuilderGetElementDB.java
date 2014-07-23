@@ -47,8 +47,7 @@ public class TaskBuilderGetElementDB implements TaskBuilder{
                 String search = communication.receive(String.class);
 
                 
-                String result = ((TaskManager)manager).
-                        getManagerDB().get(typeGet,search);
+                String result = ((TaskManager)manager).getManagerRequestDB().get(typeGet,search);
 
                 logger.info("ACCESO | IP : " + communication.getSocket().
                         getRemoteSocketAddress().toString() + " | ACCION: " + 

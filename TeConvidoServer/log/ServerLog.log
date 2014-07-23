@@ -402,3 +402,46 @@ java.net.BindException: Address already in use: JVM_Bind
 21/05 11:58:10 | INFO  | ACCESO | IP : /127.0.0.1:54009 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
 21/05 11:59:56 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
 21/05 12:00:01 | INFO  | ACCESO | IP : /127.0.0.1:54036 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+22/05 19:51:19 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+22/05 19:51:29 | INFO  | ACCESO | IP : /127.0.0.1:62479 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+22/05 20:03:00 | ERROR | SERVIDOR | Error al iniciar el servidor
+java.net.BindException: Address already in use: JVM_Bind
+	at java.net.DualStackPlainSocketImpl.bind0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketBind(DualStackPlainSocketImpl.java:106)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:376)
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:190)
+	at java.net.ServerSocket.bind(ServerSocket.java:376)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at java.net.ServerSocket.<init>(ServerSocket.java:128)
+	at com.taskserver.server.AbstractServer.<init>(AbstractServer.java:38)
+	at com.teconvido.server.TeConvidoServer.<init>(TeConvidoServer.java:51)
+	at com.teconvido.server.TeConvidoServer.main(TeConvidoServer.java:87)
+22/05 20:03:07 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+22/05 20:03:10 | INFO  | ACCESO | IP : /127.0.0.1:62736 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+22/05 20:04:18 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+22/05 20:04:26 | INFO  | ACCESO | IP : /127.0.0.1:62755 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+22/05 20:05:10 | INFO  | ACCESO | IP : /127.0.0.1:62774 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+22/05 20:05:22 | INFO  | ACCESO | IP : /127.0.0.1:62782 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+22/05 20:06:02 | INFO  | ACCESO | IP : /127.0.0.1:62796 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+22/05 20:07:06 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+22/05 20:07:11 | INFO  | ACCESO | IP : /127.0.0.1:62814 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+22/05 20:07:49 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+22/05 20:07:53 | INFO  | ACCESO | IP : /127.0.0.1:62841 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+22/05 20:08:46 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+22/05 20:08:49 | INFO  | ACCESO | IP : /127.0.0.1:62861 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+26/05 12:34:53 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+26/05 12:35:46 | INFO  | ACCESO | IP : /127.0.0.1:50068 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+26/05 12:36:52 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+26/05 12:36:59 | INFO  | ACCESO | IP : /127.0.0.1:50084 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+26/05 12:42:13 | INFO  | ACCESO | IP : /127.0.0.1:50149 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+26/05 12:43:15 | INFO  | ACCESO | IP : /127.0.0.1:50161 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+26/05 12:44:08 | INFO  | ACCESO | IP : /127.0.0.1:50172 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+26/05 12:45:10 | INFO  | ACCESO | IP : /127.0.0.1:50186 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+26/05 12:46:10 | INFO  | ACCESO | IP : /127.0.0.1:50200 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+26/05 12:46:57 | INFO  | ACCESO | IP : /127.0.0.1:50210 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+26/05 12:52:34 | INFO  | ACCESO | IP : /127.0.0.1:50286 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+26/05 12:58:31 | INFO  | ACCESO | IP : /127.0.0.1:50405 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+26/05 12:58:44 | INFO  | ACCESO | IP : /127.0.0.1:50410 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva7f92@gmail.com","password":"65111992"}
+26/05 13:03:15 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+26/05 13:03:19 | INFO  | ACCESO | IP : /127.0.0.1:50497 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva7f92@gmail.com","password":"65111992"}
+26/05 13:03:29 | INFO  | ACCESO | IP : /127.0.0.1:50501 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}

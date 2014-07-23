@@ -17,7 +17,7 @@ package com.teconvido.server;
 
 import com.taskserver.server.AbstractTaskManager;
 import com.teconvido.common.TypeServiceServer;
-import com.teconvido.db.ManagerDB;
+import com.teconvido.db.ManagerRequestDB;
 import com.teconvido.server.taskbuilder.TaskBuilderGetElementDB;
 import com.teconvido.server.taskbuilder.TaskBuilderInsertElementDB;
 import com.teconvido.server.taskbuilder.TaskBuilderNotificationPush;
@@ -31,15 +31,15 @@ import com.teconvido.server.taskbuilder.TaskBuilderUpdateElementDB;
  */
 public class TaskManager extends AbstractTaskManager<TypeServiceServer>{
 
-    private ManagerDB managerDB;
+    private ManagerRequestDB managerRequestDB;
     
-    public TaskManager(int executionThreads,ManagerDB managerDB){
+    public TaskManager(int executionThreads,ManagerRequestDB managerDB){
         super(executionThreads);
         
-        this.managerDB = managerDB;
+        this.managerRequestDB = managerDB;
     }
     
-    public TaskManager(ManagerDB managerDB){
+    public TaskManager(ManagerRequestDB managerDB){
         this(DEFAULT_THREAD,managerDB);
     }
 
@@ -59,7 +59,7 @@ public class TaskManager extends AbstractTaskManager<TypeServiceServer>{
                 new TaskBuilderGetElementDB());
     }
 
-    public ManagerDB getManagerDB() {
-        return managerDB;
+    public ManagerRequestDB getManagerRequestDB() {
+        return managerRequestDB;
     }    
 }

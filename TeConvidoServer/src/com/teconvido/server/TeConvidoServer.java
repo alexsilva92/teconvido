@@ -17,7 +17,7 @@ package com.teconvido.server;
 
 import com.taskserver.server.AbstractServer;
 import com.taskserver.server.AbstractTaskManager;
-import com.teconvido.db.ManagerDB;
+import com.teconvido.db.ManagerRequestDB;
 import com.utilities.communication.socket.safesocket.gson.SafeServerSocket;
 import com.utilities.communication.socket.safesocket.gson.SafeSocket;
 import com.utilities.cryptor.CryptorException;
@@ -60,9 +60,9 @@ public class TeConvidoServer extends AbstractServer{
         catch (Exception e){
             BasicConfigurator.configure();
         }
-        ManagerDB managerDB = null;
+        ManagerRequestDB managerDB = null;
         try {
-            managerDB = new ManagerDB();
+            managerDB = new ManagerRequestDB();
             
         } catch (JAXBException ex) {
             LOOGER.error("SERVIDOR | El archivo xml de preferencias "
