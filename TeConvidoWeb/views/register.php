@@ -23,84 +23,46 @@
   <head>
     <?php include $_SERVER["DOCUMENT_ROOT"].'/route.php'; ?>
     <?php include $root.View::$Head; ?>
+    <link href="/public//css/bootstrap-dialog.css" rel="stylesheet" type="text/css">
+    <script src="/public/js/bootstrap-dialog.min.js"></script>
+    <?php include $root.View::$Dialog; ?>
+    <?php include $root.Module::$CheckNotSession; ?>
+    <?php static $ERROR_NOT_REGISTER = 1;?>
+    <?php static $ERROR_LOGIN_OR_EMAIL_EXITS = 2;?>
+    
+    <?php $antsRoad = array ("Registrar" => Address::$Register);?>
   </head>
 
   <body>
     <?php include $root.View::$Navbar; ?>
-    <br><br><br>
     <div class="container">
-      <div class="row">
-        <div class="col-xs-6">
-            <div class="register">
-                <div class="panel panel-primary ">
+        <div class="container-teconvido">
+            
+            <?php include $root.Module::$AntsRoad?>
+            
+            <div class="row">
+              <div class="col-xs-6">
+                  <?php include $root.View::$RegistrationPanel ?>
+              </div>
 
-                    <div class="panel-heading">
-                    <h3 class="panel-title">Registro</h3>
-                    </div>
+              <div class="col-xs-6">
+                  <?php include $root.View::$LoginPanel ?>  
+              </div>
 
-                    <div class="panel-body">
-                       <form role="form" method="post" action="/modules/login/login.php">
-
-                           <div class="form-group">
-                               <input name="reg_login" type="text" placeholder="Login" class="form-control" required>
-                           </div> 
-
-                           <div class="form-group">
-                               <input name="reg_password" type="password" placeholder="Password" class="form-control" required>
-                           </div>
-
-                           <div class="form-group">
-                               <input name="reg_name" type="text" placeholder="Nombre" class="form-control" required>
-                           </div>
-
-                           <div class="form-group">
-                               <input name="reg_subname" type="text" placeholder="Apellidos" class="form-control" required>
-                           </div>
-
-                           <div class="form-group">
-                               <input name="reg_email" type="email" placeholder="Email" class="form-control" required>
-                           </div>
-
-                           <button type="reg_submit" class="btn btn-primary pull-right">Registrar</button>
-
-                      </form>  
-                    </div>
-
-                </div>
+              <div class="clearfix visible-xs"></div>
             </div>
         </div>
-        <div class="col-xs-6">
-            <div class="login center">
-                <div class="panel panel-secundary ">
-
-                    <div class="panel-heading">
-                    <h3 class="panel-title">Login</h3>
-                    </div>
-
-                    <div class="panel-body">
-                       <form role="form" method="post" action="/modules/login/login.php">
-
-                           <div class="form-group">
-                               <input name="log_email" type="email" placeholder="Email" class="form-control" required>
-                           </div>
-
-                           <div class="form-group">
-                               <input name="log_password" type="password" placeholder="Password" class="form-control" required>
-                           </div>
-
-                           <button type="log_submit" class="btn btn-success pull-right">Entrar</button>
-
-                      </form>  
-                    </div>
-
-                </div>
-            </div>    
-        </div>
-        <div class="clearfix visible-xs"></div>
-      </div>
     </div>
-
-      
+    <?php
+    if(isset($_POST['error'])) {
+        $error = $_POST['error'];
+        if($error == $ERROR_NOT_REGISTER){
+            showDangerDialog("Acceso denegado", "Tienes que estar logueado para acceder a esa zona");
+        }else if($error == $ERROR_LOGIN_OR_EMAIL_EXITS){
+            showDangerDialog("Registro incorrecto", "El login o el email ya existen");
+        }
+    }
+    ?>  
     <?php include $root.View::$Footer; ?>
   </body>
 </html>

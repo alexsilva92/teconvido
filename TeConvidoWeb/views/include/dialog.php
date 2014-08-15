@@ -16,6 +16,10 @@
  * limitations under the License.
  */
 
+?>
+<link href="/public//css/bootstrap-dialog.css" rel="stylesheet" type="text/css">
+<script src="/public/js/bootstrap-dialog.min.js"></script>
+<?php
 
 function showDangerDialog($title, $message){
 ?>

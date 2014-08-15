@@ -26,6 +26,8 @@
 <link rel="shortcut icon" href="/public/favicon.ico">
 <title>TeConvido</title>
 <link href="/public/css/bootstrap.css" rel="stylesheet">
+<link href="/public/css/teconvido.css" rel="stylesheet">
+<link rel="stylesheet" href="/public/jquery/jquery-ui.css">
 <script src="/public/jquery/jquery-1.10.2.min.js"></script>
 <script src="/public/jquery/jquery-ui.js"></script>
 <script src="/public/js/bootstrap.min.js"></script>

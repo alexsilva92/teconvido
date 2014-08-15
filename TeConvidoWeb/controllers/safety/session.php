@@ -16,13 +16,61 @@
  * limitations under the License.
  */
 
-function startSession($login){
-    session_name("teconvido");
-    session_start(); 
+function startSession(){
+    if(!isset($_SESSION["on"])){
+        session_name("teconvido");
+        session_start();
+        $_SESSION["on"] = TRUE;
+    }
+}
+
+function createSession($login,$ticketDB = NULL){
+    startSession(); 
 
     $_SESSION["login"] = $login;
+    if($ticketDB != NULL){
+        $_SESSION["ticketDB"] = $ticketDB;
+    }
 
     return session_id();
+}
+
+function getSession(){
+    startSession();
+    
+    $login = NULL;
+    
+    if (isset($_SESSION["login"])){
+        $login = $_SESSION["login"];   
+    }
+    
+    return $login;
+}
+
+function getTicketDB(){
+    startSession();
+    
+    $ticketDB = NULL;
+    
+    if (isset($_SESSION["ticketDB"])){
+        $ticketDB = $_SESSION["ticketDB"];   
+    }
+    
+    return $ticketDB;
+}
+
+function closeSession($ticket = NULL){
+    if($ticket != NULL){
+        session_id($ticket);
+    }
+    
+    startSession();
+    
+    unset($_SESSION["login"]);
+    unset($_SESSION["ticketDB"]);
+    unset($_SESSION["on"]);
+    
+    session_destroy();
 }
 
 function isCorrectAuthorization(){  
@@ -35,37 +83,13 @@ function isCorrectAuthorization(){
             $ticket = json_decode($value);
         }
     }
-    session_id($ticket -> ticket);
-
-    return isSession();
-}
-
-function setIdSession($ticket){
-    session_id($ticket);
-    session_name("teconvido");
-    session_start();
-}
-
-function isSession($create = TRUE){
-    if($create){
-        session_name("teconvido");
-        session_start();
-    }
-    
-    if (isset($_SESSION["login"])){
-        return $_SESSION["login"];
-    }
-    return NULL;
-}
-function closeSession($ticket = NULL){
-    if($ticket == NULL){
-        session_id();
-    }else{
+    if($ticket != null){
         session_id($ticket);
+        return getSession();
+    }else{
+       return NULL;
     }
-    session_name("teconvido");
-    session_start();
-    
-    unset($_SESSION["login"]);
-    session_destroy();
 }
+
+
+

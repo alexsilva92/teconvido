@@ -18,17 +18,22 @@
 
 include $_SERVER["DOCUMENT_ROOT"].'/route.php';
 include $root.Controller::$Client;
+include_once $root.Controller::$Session;
 
 
 $client = new Client($host);
 
 $user = new User();
-$user -> login = "XperiaT";
-$user -> email = "brnbasco@gmail.com";
+$user -> login = "XperiaS";
+$user -> email = "alexsilva792@gmail.com";
 $user -> password = "65111992";
-$user -> name = "Brian";
-$user -> subname = "Basco";
+$user -> name = "Alejandro";
+$user -> subname = "Silva";
         
-echo json_encode($user);
-print_r($client -> addUser($user));
+
+$ticket = $client ->isCorrectLogin($user -> email, $user->password);
+
+createSession($ticket->login,$ticket-> ticket);
+
+print_r($client ->getCar("4652DMX"));
 

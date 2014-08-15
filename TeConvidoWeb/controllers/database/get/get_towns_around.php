@@ -17,15 +17,15 @@
  */
 
 include $_SERVER["DOCUMENT_ROOT"].'/route.php';
-include $root.Controller::$DBConfig;
-include $root.Controller::$DBConnect;
-include $root.Controller::$Session;
+include_once $root.Controller::$DBConfig;
+include_once $root.Controller::$DBConnect;
+include_once $root.Controller::$Session;
 
 //$login = isCorrectAuthorization();
 //if($login != NULL){
     if(!empty($_POST['longitude']) && !empty($_POST['latitude']) && !empty($_POST['deviation'])){
 
-        $sql = "CALL getTownsAround(:longitude,:latitude,:deviation)";
+        $sql = "CALL getTownsAroundCircle(:longitude,:latitude,:deviation)";
 
         $longitude = $_POST['longitude'];
         $latitude= $_POST['latitude'];

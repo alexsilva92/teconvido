@@ -26,6 +26,11 @@ class Get {
     static $IS_CORRECT_LOGIN = "/controllers/database/get/is_correct_login.php";
     static $GET_TOWNS = "/controllers/database/get/get_towns.php";
     static $GET_TOWNS_AROUND = "/controllers/database/get/get_towns_around.php";
+    static $GET_CARS_USER = "/controllers/database/get/get_cars_user.php";
+    static $GET_REQUESTED_TRAVELS_USER = "/controllers/database/get/get_requested_travels_user.php";
+    static $GET_TRAVELS_WITH_DRIVER_USER = "/controllers/database/get/get_travels_with_driver_user.php";
+    static $GET_REALIZED_TRAVELS_USER = "/controllers/database/get/get_realized_travels_user.php";
+    static $GET_CAR = "/controllers/database/get/get_car.php";
 }
 
 class Update {
@@ -38,4 +43,7 @@ class Remove {
 
 class Insert {
     static $ADD_USER = "/controllers/database/insert/add_user.php";
+    static $ADD_REQUESTED_TRAVEL = "/controllers/database/insert/add_requested_travel.php";
+    static $ADD_TRAVEL_WITH_DRIVER = "/controllers/database/insert/add_travel_with_driver.php";
+    static $ADD_TRAVEL_STOP = "/controllers/database/insert/add_travel_stop.php";
 }

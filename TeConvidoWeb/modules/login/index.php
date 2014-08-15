@@ -17,7 +17,13 @@
  */
 global $path;
 $path = __DIR__;
-include $path.'/route.php';
-include $root.Controller::$Session;
-include $path.ControllerLogin::$IsLogin;
+
+include_once $path.'/route.php';
+include_once $root.Controller::$Session;
+
+if(!getSession()){
+    include $path.ViewLogin::$LoginOff;
+}else{
+    include $path.ViewLogin::$LoginOn;
+}
 

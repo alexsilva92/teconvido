@@ -29,14 +29,12 @@ class User implements JsonSerializable{
     private $gcmCode;
     
     public function __set($var, $value) {
-        $var = strtolower($var);
         if (property_exists('User',$var)) {
             $this -> $var = $value;
         }
     }
  
     public function __get($var){
-        $var = strtolower($var);
         if (property_exists('User', $var)){
             return $this -> $var;
         }

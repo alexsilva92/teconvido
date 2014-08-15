@@ -9,14 +9,7 @@
 
   <body>
       <div class="ui-widget">
-        <label for="origin">Tags: </label>
-        <input id="origin">
+        <input class="input-town">
       </div>
-      
-      <div class="ui-widget">
-        <label for="destination">Tags: </label>
-        <input id="destination">
-      </div>
-      
   </body>
 </html>

@@ -19,34 +19,34 @@
 ?>
 
 <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
-    <a title="Cerrar Sesión" href="/modules/login/close_session.php">
-        <div class="panel-nav-image navbar-right">
+    <a title="Cerrar Sesión" href="<?=Action::$CloseSession?>">
+        <div class="nav-image navbar-right">
             <img src="/public/images/close_session_32x32.png"/>
         </div>
     </a>
 </nav>
 
 <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
-    <a href="http://www.example.com">
-        <div class="panel-user navbar-right">
-            <img src="/public/images/user_28x28.png"/>
-            <div class="text"><?=$_SESSION["login"]?></div>
+    <a href="<?=Address::$MyProfile?>">
+    <div class="nav-user navbar-right">
+            <img src="/public/images/user_150x150.png"/>
+            <h5><?=$_SESSION["login"]?></h5>  
+    </div>
+    </a>      
+</nav>
+
+<nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
+    <a title="Alertas" href="<?=Address::$Alert?>">
+        <div class="nav-image navbar-right">
+            <img src="/public/images/no_alert_32x32.png"/>
         </div>
     </a>
 </nav>
 
-<nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
-<!--    <a title="Cerrar Sesión" href="/modules/login/close_session.php">-->
-        <div class="panel-nav-image navbar-right">
-            <img src="/public/images/no_alert_32x32.png"/>
-        </div>
-<!--    </a>-->
-</nav>
-
-<nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
-<!--    <a title="Cerrar Sesión" href="/modules/login/close_session.php">-->
+<!--<nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
+    <a title="Cerrar Sesión" href="/modules/login/close_session.php">
         <div class="panel-nav-image navbar-right">
             <img src="/public/images/no_message_32x32.png"/>
         </div>
-<!--    </a>-->
-</nav>
+    </a>
+</nav>-->

@@ -16,13 +16,6 @@
  * limitations under the License.
  */
 
-
-class ControllerLogin{
-    static $IsLogin = '/controllers/is_login.php';
-    static $CloseSession = '/controllers/close_session.php';
-    static $Login = '/controllers/login.php';
-}
-
 class ViewLogin{
     static $LoginOff = '/views/login_off.php';
     static $LoginOn = '/views/login_on.php';

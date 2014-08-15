@@ -17,11 +17,11 @@
  */
 
 include $_SERVER["DOCUMENT_ROOT"].'/route.php';
-include $root.Controller::$DBConfig;
-include $root.Controller::$DBConnect;
-include $root.Controller::$Session;
-include $root.Model::$User;
-include $root.Model::$TicketLogin;
+include_once $root.Controller::$DBConfig;
+include_once $root.Controller::$DBConnect;
+include_once $root.Controller::$Session;
+include_once $root.Model::$User;
+include_once $root.Model::$TicketLogin;
 
 if(!empty($_POST['search'])){
     
@@ -42,17 +42,15 @@ if(!empty($_POST['search'])){
         
         if($result != NULL){
             $ticket = new TicketLogin();
-            $ticket -> login =  $result -> login;
-            $ticket -> ticket = startSession($result -> login);
-            $return = json_encode($ticket);                
+            $ticket -> login = $result -> login;
+            $ticket -> ticket = createSession($result -> login);
+            echo json_encode($ticket);   
         }else{
-            $return = NULL;
+            echo NULL;
         }
         
         unset($ps);
         unset($db);
-
-        echo $return;
     }else{
         http_response_code(500);
     }

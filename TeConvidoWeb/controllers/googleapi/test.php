@@ -20,6 +20,6 @@ include $_SERVER["DOCUMENT_ROOT"].'/route.php';
 include $root.Controller::$Client;
 
 $client = new Client("localhost");
-$travel = $client ->getGoogleTravel("TERUEL", "MORA DE RUBIELOS", 10);
+$travel = $client -> getInfoTravel("TERUEL", "LA PUEBLA DE VALVERDE", 15);
 print_r($travel);
 

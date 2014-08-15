@@ -1,0 +1,370 @@
+/*
+Copyright 2014 Alejandro Silva <alexsilva792@gmail.com>.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+/* 
+    Created on : 28-jul-2014, 12:19:15
+    Author     : Alejandro Silva <alexsilva792@gmail.com>
+*/
+
+.container-teconvido{
+    margin-top: 60px;
+}
+
+.ants-road{
+    margin-bottom: 20px;
+}
+
+.min-height-375{
+    min-height: 375px;
+}
+
+.min-height-265{
+    min-height: 265px;
+}
+
+.min-height-70{
+    min-height: 70px;
+}
+
+.width-100x100{
+    width: 100%;
+}
+
+.input-error{
+    background-color: #FDC8C8;
+    border: 2px solid red;
+}
+
+.input-date{
+    background-position: left center;
+    background-position-x: 2px;
+    background-position-y: 2px;
+    padding-left: 35px;
+    background-image: url(../images/input_date.png);
+    background-repeat: no-repeat;
+}
+
+.input-car{
+    background-position: left center;
+    background-position-x: 2px;
+    background-position-y: 2px;
+    padding-left: 35px;
+    background-image: url(../images/input_car.png);
+    background-repeat: no-repeat;
+}
+
+.input-space{
+    background-position: left center;
+    background-position-x: 2px;
+    background-position-y: 2px;
+    padding-left: 35px;
+    background-image: url(../images/input_space.png);
+    background-repeat: no-repeat;
+}
+
+.input-origin{
+    background-position: left center;
+    background-position-x: 4px;
+    background-position-y: 2px;
+    padding-left: 28px;
+    background-image: url(../images/input_origin.png);
+    background-repeat: no-repeat;
+}
+
+.input-destination{
+    background-position: left center;
+    background-position-x: 4px;
+    background-position-y: 2px;
+    padding-left: 28px;
+    background-image: url(../images/input_destination.png);
+    background-repeat: no-repeat;
+}
+
+.input-date-lg{
+    background-position: left center;
+    background-position-x: 2px;
+    background-position-y: 2px;
+    padding-left: 50px;
+    background-image: url(../images/input_date_lg.png);
+    background-repeat: no-repeat;
+}
+
+.input-origin-lg{
+    background-position: left center;
+    background-position-x: 4px;
+    background-position-y: 2px;
+    padding-left: 35px;
+    background-image: url(../images/input_origin_lg.png);
+    background-repeat: no-repeat;
+}
+
+.input-destination-lg{
+    background-position: left center;
+    background-position-x: 4px;
+    background-position-y: 2px;
+    padding-left: 35px;
+    background-image: url(../images/input_destination_lg.png);
+    background-repeat: no-repeat;
+}
+
+.margin-top-15{
+    margin-top: 15px;
+}
+
+.panel-disabled{
+  color: #A4A4A4;
+  border-color: #ddd;
+  background: #f5f5f5;
+}
+.panel-disabled .panel-heading {
+  border-color: #ddd;
+}
+
+.panel-disabled .panel-body{
+    background-color: #f5f5f5;
+}
+
+.panel-disabled input{
+    color: #A4A4A4;
+}
+
+.input-home {
+  height: 46px;
+}
+
+.panel-title a:hover,
+.panel-title a:focus,
+.panel-title a:active,
+.panel-title a.active{
+  font-weight:bold;
+  text-decoration: none;
+}
+
+.textarea-car{
+    resize: none;
+    background-color: #f5f5f5;
+    height: 100px;
+    width: 100%;
+}
+
+.img-car{
+    height: 235px;
+    width: 100%;
+    max-width: 300px;
+    
+}
+
+
+/* FOOTER *********************************************************************/
+
+.footer{
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-top: 15px;
+    margin-top: 20px;  
+    background-color: #6D996D;
+    border-top: 1px solid #235723;
+    border-bottom: 1px solid #235723;
+    min-height: 50px;
+}
+
+.footer p{
+      color: #FFFFFF;
+}
+
+ul.footer-social-network-list li a {
+    display: inline-block;
+    background-image: url(../images/footer-social.png);
+    background-repeat: no-repeat;
+    width: 29px;
+    height: 28px;
+}
+
+ul.footer-social-network-list li{
+    list-style:none;
+    display: inline;
+}
+
+ul.footer-social-network-list li a.twitter {
+    background-position: 0 0;
+}
+
+ul.footer-social-network-list li a.facebook {
+    background-position: -31px 0;
+}
+
+/******************************************************************************/
+
+/* NAVBAR *********************************************************************/
+
+.nav-user {   
+    min-width: 180px;
+    margin-top: 3px;
+    margin-right: 10px;
+    padding: 4px;
+    text-align: center;
+    border: 1px solid #000; 
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+}
+
+.nav-user:hover,
+.nav-user:focus,
+.nav-user:active,
+.nav-user.active{
+  background-color: #425742;
+  text-decoration: none;
+}
+
+.nav-user  img{
+    float: left;
+    width: 35px;
+    height: 35px;
+    padding: 2px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.nav-user  h5{
+    color: white;
+    margin-right: 5px;
+    font-weight:bold;
+}
+
+.nav-image{   
+    margin-top: 9px;
+    margin-right: 10px; 
+}
+
+.nav-image img{   
+    width: 35px;
+    height: 35px;
+}
+
+/******************************************************************************/
+
+/* HOME ***********************************************************************/
+
+.container-home{
+    height: 350px;
+    background: url('../images/header_1160x372.png') no-repeat center center;
+    padding-top: 240px;
+}
+
+.container-home img {
+  width: 307px;
+  height: 75px;
+  margin-left: 20px;
+}
+
+.container-home form {
+  margin-left: 15px;
+}
+
+.container-home p {
+  margin-bottom: 15px;
+  margin-left: 20px;
+  font-size: 21px;
+  font-weight: 200;
+  color: #acd39c;
+  text-shadow: black 0.1em 0.1em 0.2em
+}
+
+/******************************************************************************/
+
+/* MY PROFILE *****************************************************************/
+
+.menu-my_profile{
+    float: right;
+    padding: 10px 1px 10px 1px;
+    -webkit-border-radius:3px; 
+    -moz-border-radius: 3px;
+    border-radius: 3px; 
+    border: 3px solid #235723;
+    background-color: #6D996D;
+    box-shadow: inset 1px 1px 1px rgba(255,255,255,.7), inset -1px -1px 1px;
+    width: 80%;
+}
+
+.menu-my_profile img{
+    -webkit-border-radius:10px; 
+    -moz-border-radius: 10px;
+     border-radius: 10px; 
+     border: 3px solid #235723;
+     height: 150px;
+     max-width: 100%;
+}
+
+.menu-my_profile h4{
+    color: white;
+    font-weight: bold;
+    margin-bottom: 15px;
+    border-top: 2px solid #235723; 
+    border-bottom: 2px solid #235723; 
+    background-color: #5C815C;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.menu-my_profile .menu-item{
+    color: white;
+    display:  block;
+    margin-bottom: 10px;
+    margin-left: 3px;
+    margin-right: 3px;
+    font-weight:bold;
+
+}
+
+.menu-my_profile .selection{
+    border: 1px solid #235723; 
+    -webkit-border-radius:10px; 
+    -moz-border-radius: 10px;
+    -border-radius: 10px; 
+}
+
+.menu-my_profile .menu-item:hover,
+.menu-my_profile .menu-item:focus,
+.menu-my_profile .menu-item:active,
+.menu-my_profile .menu-item.active{
+  background-color: #3F5A3F;
+  border: 1px solid #235723; 
+  -webkit-border-radius:10px; 
+  -moz-border-radius: 10px;
+  -border-radius: 10px; 
+}
+
+.menu-my_profile a:hover,
+.menu-my_profile a:focus,
+.menu-my_profile a:active,
+.menu-my_profile a.active{
+  text-decoration:none; 
+}
+
+.section-my_profile{
+    float: left;
+    -webkit-border-radius:3px; 
+    -moz-border-radius: 3px;
+    border-radius: 3px; 
+    background-color: white;
+    min-height: 350px;
+    width: 100%;
+}
+
+/******************************************************************************/
+

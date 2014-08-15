@@ -17,9 +17,9 @@
  */
 
 include $_SERVER["DOCUMENT_ROOT"].'/route.php';
-include $root.Controller::$DBConfig;
-include $root.Controller::$DBConnect;
-include $root.Controller::$Session;
+include_once $root.Controller::$DBConfig;
+include_once $root.Controller::$DBConnect;
+include_once $root.Controller::$Session;
 
 $login = isCorrectAuthorization();
 if($login != NULL){

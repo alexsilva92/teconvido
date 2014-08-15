@@ -1,6 +1,5 @@
 <?php
-
-/* 
+/*
  * Copyright 2014 Alejandro Silva <alexsilva792@gmail.com>.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,48 +14,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <?php include $_SERVER["DOCUMENT_ROOT"].'/route.php'; ?>
-    <?php include $root.View::$Head; ?>
-    <?php include $root.Module::$InputTown ?>
-    <link rel="stylesheet" href="/public/jquery/jquery-ui.css">
-  </head>
+    <head>
+        <?php include $_SERVER["DOCUMENT_ROOT"] . '/route.php'; ?>
+        <?php include $root.View::$Head; ?>
+        <?php include $root.IU::$SearchTravel ?>
+        <?php $antsRoad = $controller -> getAntsRoad(); ?> 
+    </head>
 
-  <body>
-    <?php include $root.View::$Navbar; ?>
+    <body>
+        <?php include $root.View::$Navbar; ?>
 
-    <div class="container">
-          <div class="panel-center">
-              <a href="">Buscar Viaje</a> > ...
-              
-              <div class="search-travel text-center">
-                <form class="form-inline" role="form">
-                  <div class="form-group ui-widget">
-                    <label for="origin"></label>
-                    <input id="origin" type="text" placeholder="Origen" class="form-control" required>
-                  </div>
-                  <div class="form-group ui-widget">
-                    <label for="tags"></label>
-                    <input id="destination" type="text" placeholder="Destino" class="form-control" required>
-                  </div>
-                  <div class="form-group">
-                    <input type="date" placeholder="Fecha" class="form-control" required>
-                  </div>
-                  <button type="text" class="btn btn-primary">Buscar</button>
-                </form>
-              </div>
-              
-              <div class="text-center">
-                    <img class="img-search-travel " src="/public/images/map_teruel_800x500.jpg" alt="Mapa Teruel">
-              </div>
-          </div>
-      </div>    
-      
-    <?php include $root.View::$Footer; ?>
-  </body>
+        <div class="container">
+            <div class="container-teconvido">
+
+                <?php include $root.Module::$AntsRoad?>
+             
+                <?php $controller -> includeBody($root,$host); ?>
+                
+            </div>    
+        </div>
+        
+        <?php include $root.View::$Footer; ?>
+    </body>
 </html>

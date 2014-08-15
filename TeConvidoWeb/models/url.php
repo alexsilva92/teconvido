@@ -34,14 +34,12 @@ class Url {
     }
     
     public function __set($var, $value) {
-        $var = strtolower($var);
         if (property_exists('Url',$var)) {
             $this->$var = $value;
         }
     }
  
     public function __get($var){
-        $var = strtolower($var);
         if (property_exists('Url', $var)){
             return $this->$var;
         }

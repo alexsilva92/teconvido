@@ -18,19 +18,19 @@
 ?>
 <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
     <form class="navbar-form navbar-right" role="form" method="post"
-          action="/views/register.php">
+          action="<?=Address::$Register?>">
       <button type="submit" class="btn btn-primary">Registro</button>
     </form>
 </nav>
 
 <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
     <form class="navbar-form navbar-right" role="form" method="post" 
-          action="/modules/login/login.php">
-      <div class="form-group">
-          <input name="nav_email" type="email" placeholder="Email" class="form-control" required>
+          action="<?=Action::$StartSession?>">
+      <div class="form-group"> 
+          <input class="form-control input-user" name="nav_email" type="email" placeholder="Email"  required>
       </div>
       <div class="form-group">
-        <input name="nav_password" type="password" placeholder="Contraseña" class="form-control required">
+        <input class="form-control input-password" name="nav_password" type="password" placeholder="Contraseña"  required>
       </div>
       <button type="submit" class="btn btn-success">Entrar</button>
     </form>

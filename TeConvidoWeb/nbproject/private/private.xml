@@ -4,12 +4,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/www/modules/input_town/autocomplete.php</file>
-            <file>file:/C:/xampp/www/modules/input_town/prueba.php</file>
-            <file>file:/C:/xampp/www/modules/input_town/test.php</file>
-            <file>file:/C:/xampp/www/route.php</file>
-            <file>file:/C:/xampp/www/index.php</file>
-            <file>file:/C:/xampp/www/views/publish_travel.php</file>
+            <file>file:/C:/xampp/www/controllers/database/get/is_correct_login.php</file>
+            <file>file:/C:/xampp/www/controllers/request/test.php</file>
+            <file>file:/C:/xampp/www/iu/get_car/views/with_get_panel.php</file>
+            <file>file:/C:/xampp/www/iu/get_car/index.php</file>
+            <file>file:/C:/xampp/www/controllers/database/get/get_car.php</file>
+            <file>file:/C:/xampp/www/models/car.php</file>
         </group>
     </open-files>
 </project-private>

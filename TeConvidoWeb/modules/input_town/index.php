@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-include $root.Controller::$Client;
+include_once $root.Controller::$Client;
 
 $client = new Client($host);
 $towns = $client ->getTowns();
@@ -23,25 +23,20 @@ $tags = array();
 foreach ($towns as $town) {
     array_push($tags, $town -> name); 
 }
-$tags = json_encode($tags);
-echo $tags;
-?>
-<!--<script src="/public/jquery/jquery-1.10.2.min.js"></script>
-<script src="/public/jquery/jquery-ui.js"></script>-->
-<script>
-$(function() {
-    var tags = <?php echo $tags; ?>;
-    $( "#origin" ).autocomplete({
-      source: tags
-    });
-});
-</script>
+$json = json_encode($tags);
 
-<script>
-$(function() {
-    var tags = <?php echo $tags; ?>;
-    $( "#destination" ).autocomplete({
+?>
+
+<script> 
+    
+$(function () {
+   var tags = <?php echo $json ?>;
+   
+   $( ".input-town" ).autocomplete({
       source: tags
     });
 });
+
 </script>
+      
+

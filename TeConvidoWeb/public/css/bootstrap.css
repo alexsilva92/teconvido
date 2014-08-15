@@ -3741,7 +3741,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-brand {
   float: left;
   height: 50px;
-  padding: 15px 15px;
+  padding: 7px 15px;
   font-size: 18px;
   line-height: 20px;
 }
@@ -3818,7 +3818,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   .navbar-nav {
     float: left;
     margin: 0;
-  }
+  
+}
   .navbar-nav > li {
     float: left;
   }
@@ -4023,15 +4024,15 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   color: #333;
 }
 .navbar-inverse {
-  background-color: #222;
-  border-color: #080808;
+  background-color: #424242;
+  border-color: #000000;
 }
 .navbar-inverse .navbar-brand {
   color: #999;
 }
 .navbar-inverse .navbar-brand:hover,
 .navbar-inverse .navbar-brand:focus {
-  color: #fff;
+  color: #FFF;
   background-color: transparent;
 }
 .navbar-inverse .navbar-text {
@@ -4454,7 +4455,6 @@ a.thumbnail.active {
 }
 .alert {
   padding: 15px;
-  margin-bottom: 20px;
   border: 1px solid transparent;
   border-radius: 4px;
 }
@@ -5081,7 +5081,7 @@ a.list-group-item-danger.active:focus {
 .well {
   min-height: 20px;
   padding: 19px;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   background-color: #f5f5f5;
   border: 1px solid #e3e3e3;
   border-radius: 4px;
@@ -5828,187 +5828,3 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
-
-ul.footer-social-network-list li a {
-    display: inline-block;
-    background-image: url(../images/footer-social.png);
-    background-repeat: no-repeat;
-    width: 29px;
-    height: 28px;
-}
-
-ul.footer-social-network-list li{
-    list-style:none;
-    display: inline;
-}
-
-ul.footer-social-network-list li a.twitter {
-    background-position: 0 0;
-}
-
-ul.footer-social-network-list li a.facebook {
-    background-position: -31px 0;
-}
-
-.footer{
-    padding-right: 15px;
-    padding-left: 15px;
-    padding-top: 10px;
-    margin-right: auto;
-    margin-left: auto; 
-    margin-top: 40px;  
-    background-color: #398439;
-    border: 2px solid #327632;
-    min-height: 80px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-}
-
-.footer p{
-      color: #FFFFFF;
-}
-
-@media (min-width: 768px){
-    .footer {
-        width: 768px;
-    }
-}
-
-@media (min-width: 992px){
-    .footer {
-        width: 992px;
-    }
-}
-
-@media (min-width: 1200px){
-    .footer {
-        width: 1200px;
-    }
-}
-
-.container .panel-center{
-    margin-top: 60px;
-}
-
-.register{
-    margin-right: 30px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-
-@media (max-width: 719px){
-    .register {
-        width: 400px;
-    }
-}
-
-@media (min-width: 720px){
-    .register {
-        width: 350px;
-    }
-}
-
-@media (min-width: 992px){
-    .register {
-        width: 450px;
-    }
-}
-
-@media (min-width: 1200px){
-    .register {
-        width: 500px;
-    }
-}
-
-.login{
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-
-@media (max-width: 719px){
-    .login {
-        display: none;
-    }
-}
-
-@media (min-width: 720px){
-    .login {
-        width: 350px;
-    }
-}
-
-@media (min-width: 992px){
-    .login {
-        width: 450px;
-    }
-}
-
-@media (min-width: 1200px){
-    .login {
-        width: 500px;
-    }
-}
-
-.panel-user{   
-    min-width: 150px;
-    margin-top: 8px;
-    margin-right: 10px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    border: 2px solid #428bca;
-}
-
-.panel-user:hover,
-.panel-user:focus,
-.panel-user:active,
-.panel-user.active{
-  background-color: #3276b1;
-  border: 2px solid #183650; 
-}
-
-.panel-user img{
-    float: left;
-    margin-right: 10px;
-    background-color: #FFFFFF;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    border: 1px solid #428bca;
-}
-
-a .text{
-    margin-top: 5px;
-    margin-right: 10px;
-    text-align: center;  
-    color: white;
-}
-
-.panel-nav-image{   
-    margin-top: 10px;
-    margin-right: 10px;
-}
-
-.search-travel{
-    padding-right: 15px;
-    padding-left: 15px;
-    padding-top: 20px;
-    margin-right: auto;
-    margin-left: auto; 
-    margin-top: 10px;  
-    background-color: #398439;
-    border: 2px solid #327632;
-    min-height: 80px;
-    width: 1000px;
-    
-/*     -webkit-border-radius: 10px; 
-    -moz-border-radius: 10px;
-     border-radius: 10px; */
-}
-
-.img-search-travel{
-    width: 1000px;
-    height: 500px;
-    border: 2px solid #327632;
-}

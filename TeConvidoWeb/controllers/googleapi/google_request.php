@@ -17,13 +17,13 @@
  */
 
 include $_SERVER["DOCUMENT_ROOT"].'/route.php';
-include $root.Controller::$UrlRequest;
-include $root.Model::$GoogleTravel;
-include $root.Model::$Url;
-include $root.Controller::$DBConfig;
-include $root.Controller::$DBConnect;
-include $root.Controller::$DBRoute;
-include $root.Controller::$Session;
+include_once $root.Controller::$UrlRequest;
+include_once $root.Model::$TravelWithDriver;
+include_once $root.Model::$Url;
+include_once $root.Controller::$DBConfig;
+include_once $root.Controller::$DBConnect;
+include_once $root.Controller::$DBRoute;
+include_once $root.Controller::$Session;
 
 if(!empty($_POST['origin']) && !empty($_POST['destination'])
    && !empty($_POST['deviation'])){
@@ -39,7 +39,7 @@ if(!empty($_POST['origin']) && !empty($_POST['destination'])
     $response = json_decode(requestMethodGet($url, $parameter));
 
     if($response != NULL && strcmp($response -> status, "OK") == 0){
-        $travel = new GoogleTravel();
+        $travel = new TravelWithDriver();
         $travel -> origin = $origin;
         $travel -> destination = $destination;
         $travel -> distance = 
@@ -63,7 +63,7 @@ if(!empty($_POST['origin']) && !empty($_POST['destination'])
             }
         }
         
-        $travel -> towns = $towns;
+        $travel -> travelStops = $towns;
 
         echo json_encode($travel);      
 

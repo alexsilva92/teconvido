@@ -1,6 +1,6 @@
 <?php
 
-/*
+/* 
  * Copyright 2014 Alejandro Silva <alexsilva792@gmail.com>.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,25 +16,20 @@
  * limitations under the License.
  */
 
-/**
- * TicketLogin.php
- * @author Alejandro Silva <alexsilva792@gmail.com>
- */
-class TicketLogin implements JsonSerializable {
+class TicketLogin implements JsonSerializable{
+    
     private $login;
     private $ticket;
     
     public function __set($var, $value) {
-        $var = strtolower($var);
         if (property_exists('TicketLogin',$var)) {
-            $this->$var = $value;
+            $this -> $var = $value;
         }
     }
  
     public function __get($var){
-        $var = strtolower($var);
         if (property_exists('TicketLogin', $var)){
-            return $this->$var;
+            return $this -> $var;
         }
  
         return NULL;
@@ -42,8 +37,9 @@ class TicketLogin implements JsonSerializable {
 
     public function jsonSerialize() {
         return [
-            'login' => $this->login,
-            'ticket' => $this->ticket
+            'login' => $this -> login,
+            'ticket' => $this -> ticket
         ];
     }
+
 }

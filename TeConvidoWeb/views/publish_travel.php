@@ -1,6 +1,5 @@
 <?php
-
-/* 
+/*
  * Copyright 2014 Alejandro Silva <alexsilva792@gmail.com>.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,37 +14,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <?php include $_SERVER["DOCUMENT_ROOT"].'/route.php'; ?>
-    <?php include $root.View::$Head; ?>
-    <link href="/public//css/bootstrap-dialog.css" rel="stylesheet" type="text/css">
-    <script src="/public/js/bootstrap-dialog.min.js"></script>
-    <?php include $root.View::$Dialog; ?>
-  </head>
+    <head>
+        <?php include $_SERVER["DOCUMENT_ROOT"].'/route.php'; ?>
+        <?php include $root.View::$Head; ?>
+        <?php include $root.IU::$PublishTravel ?>
+        <?php $antsRoad = $controller -> createAntsRoad(); ?>
+    </head>
 
-  <body>
-    <?php include $root.View::$Navbar; ?>
+    <body>
 
-      <div class="container">
-          <div class="panel-center">
-            <a href="">Publicar Viaje</a> > ...
-            <?php
-                if(isSession(FALSE) == NULL){
-                    ?>
-                    <script languaje="javascript">
-                        location.href = "/views/register.php";
-                    </script>
-                    <?php
-                }
-            ?>
-          </div>
-      </div>  
-      
-    <?php include $root.View::$Footer; ?>
-  </body>
+        <?php include $root . View::$Navbar; ?>
+
+        <div class="container">
+            <div class="container-teconvido">
+                
+                <?php include $root . Module::$AntsRoad ?>
+
+                <?php $controller -> includeBody($root,$host); ?>
+                
+            </div>
+        </div>
+
+        <?php include $root . View::$Footer; ?>
+
+    </body>
 </html>

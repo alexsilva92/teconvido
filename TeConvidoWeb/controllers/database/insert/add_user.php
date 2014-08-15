@@ -17,9 +17,9 @@
  */
 
 include $_SERVER["DOCUMENT_ROOT"].'/route.php';
-include $root.Controller::$DBConfig;
-include $root.Controller::$DBConnect;
-include $root.Controller::$Session;
+include_once $root.Controller::$DBConfig;
+include_once $root.Controller::$DBConnect;
+include_once $root.Controller::$Session;
 
 function existUser($db,$login,$email){
     $sql = "SELECT * FROM User u WHERE u.email = :email OR "
@@ -44,21 +44,16 @@ if(!empty($_POST['element'])){
            ."VALUES(:login,:email,sha1(:password),:name,:subname)";
 
     $element = json_decode($_POST['element']);
-    $login = $element -> login;
-    $email = $element -> email;
-    $pass = $element -> password;
-    $name = $element -> name;
-    $subname = $element -> subname;
     
     $db = connect($host, $user, $password, $database);
     if($db != NULL){
         if(!existUser($db,$login,$email)){
             $ps = $db->prepare($sql);
-            $ps ->bindParam(':login', $login);
-            $ps ->bindParam(':email', $email);
-            $ps ->bindParam(':password', $pass);
-            $ps ->bindParam(':name', $name);
-            $ps ->bindParam(':subname', $subname);
+            $ps ->bindParam(':login', $element -> login);
+            $ps ->bindParam(':email', $element -> email);
+            $ps ->bindParam(':password', $element -> password);
+            $ps ->bindParam(':name', $element -> name);
+            $ps ->bindParam(':subname', $element -> subname);
             $ps->execute();
 
             unset($ps);
