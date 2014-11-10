@@ -64,8 +64,32 @@
         </activity>
         
         <activity
+            android:name="com.android.teconvido.activity.CurrentTravelActivity"
+            android:label="@string/next_travel_title"
+            > 
+        </activity>
+        
+        <activity
             android:name="com.android.teconvido.activity.SearchTravelActivity"
             android:label="@string/search_travel_title"
+            > 
+        </activity>
+        
+        <activity
+            android:name="com.android.teconvido.activity.GetTravelActivity"
+            android:label="@string/get_travel_title"
+            > 
+        </activity>
+        
+        <activity
+            android:name="com.android.teconvido.activity.GetMessageActivity"
+            android:label="@string/get_message_title"
+            > 
+        </activity>
+        
+        <activity
+            android:name="com.android.teconvido.activity.MyTravelsActivity"
+            android:label="@string/my_travels_title"
             > 
         </activity>
         

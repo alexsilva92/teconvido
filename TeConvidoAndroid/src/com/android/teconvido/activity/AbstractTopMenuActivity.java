@@ -18,10 +18,13 @@ public abstract class AbstractTopMenuActivity extends Activity {
 	private boolean isAlert;
 	private boolean isMessages;
 	
+	private boolean isMenu;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		context = this;
+		this.isMenu = false;
 		getActionBar().setDisplayHomeAsUpEnabled(isEnableButtonHome());
 	}
 	
@@ -43,16 +46,25 @@ public abstract class AbstractTopMenuActivity extends Activity {
 	    		pushButtonHome();
 	    		return true;
 	    	case R.id.Alert:
+	    		
+	    		if(!isMenu)
+					finish();
+	    		
 	    		Intent alert = new Intent(context,AlertActivity.class);
 	    		alert.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | 
 	    					   Intent.FLAG_ACTIVITY_SINGLE_TOP);
 				startActivity(alert);
 				return true;
 	    	case R.id.Message:
+	    		
+	    		if(!isMenu)
+					finish();
+	    		
 	    		Intent message = new Intent(context,MessageActivity.class);
 	    		message.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | 
  					   Intent.FLAG_ACTIVITY_SINGLE_TOP);
 				startActivity(message);
+				
 				return true;
 			default:
 				 return super.onOptionsItemSelected(item);				
@@ -111,6 +123,10 @@ public abstract class AbstractTopMenuActivity extends Activity {
 	
 	public boolean isMessages(){
 		return isMessages;
+	}
+	
+	public void setIsMenu(boolean isMenu){
+		this.isMenu = isMenu;
 	}
 	
 

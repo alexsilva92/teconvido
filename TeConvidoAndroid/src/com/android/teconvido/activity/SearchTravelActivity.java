@@ -6,19 +6,27 @@ import java.util.Calendar;
 import java.util.List;
 
 import com.android.teconvido.R;
+import com.teconvido.bd.modelo.TravelWithDriver;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -38,7 +46,12 @@ public class SearchTravelActivity extends AbstractTopMenuActivity implements OnC
     private int day;   
     
     private DialogFragment dateFragment;
+    
+    private ListView lv_travels;
+    private ArrayList<TravelWithDriver> travels;
 	
+    private LinearLayout ll_results;
+    
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -46,8 +59,8 @@ public class SearchTravelActivity extends AbstractTopMenuActivity implements OnC
         setContentView(R.layout.activity_search_travel);
             
         towns = new ArrayList<String>();
-        towns.add("Teruel");
-        towns.add("Castralvo");
+        towns.add("TERUEL");
+        towns.add("CALAMOCHA");
             
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
         		android.R.layout.simple_dropdown_item_1line, towns);
@@ -79,6 +92,10 @@ public class SearchTravelActivity extends AbstractTopMenuActivity implements OnC
 
         edtx_destiny = (AutoCompleteTextView) findViewById(R.id.edtx_destiny);
         edtx_destiny.setAdapter(adapter);
+        
+        lv_travels = (ListView) findViewById(R.id.lv_travels);    
+        
+        ll_results = (LinearLayout) this.findViewById(R.id.ll_results);
             
         Button bt_search = (Button) findViewById(R.id.bt_search);
         bt_search.setOnClickListener((android.view.View.OnClickListener) this);
@@ -95,7 +112,30 @@ public class SearchTravelActivity extends AbstractTopMenuActivity implements OnC
 				Toast.makeText(context, "origin", Toast.LENGTH_SHORT).show();
 			} else if(!towns.contains(destiny)){
 				Toast.makeText(context, "destiny", Toast.LENGTH_SHORT).show();
-			} else {}
+			} else {
+
+				travels = new ArrayList<TravelWithDriver>();
+				TravelWithDriver travel = new TravelWithDriver();
+				travels.add(travel);
+				travel = new TravelWithDriver();
+				travels.add(travel);
+				travel = new TravelWithDriver();
+				travels.add(travel);
+				travel = new TravelWithDriver();
+				travels.add(travel);
+				travel = new TravelWithDriver();
+				travels.add(travel);
+				travel = new TravelWithDriver();
+				travels.add(travel);
+				travel = new TravelWithDriver();
+				travels.add(travel);
+				travel = new TravelWithDriver();
+				travels.add(travel);
+				TravelAdapter adapter = new TravelAdapter();
+				lv_travels.setAdapter(adapter);
+				ll_results.setVisibility(View.VISIBLE);
+				
+			}
 		}
 	}
 		
@@ -129,6 +169,21 @@ public class SearchTravelActivity extends AbstractTopMenuActivity implements OnC
 	    public void onDismiss (DialogInterface dialog){
 	    	dateFragment = null;
 	    }
+	}
+	
+	private class TravelAdapter extends ArrayAdapter<TravelWithDriver> {
+		public TravelAdapter() {
+			super(context, R.layout.item_search_travel, travels);
+		}
+
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {				
+			LayoutInflater inflater = context.getLayoutInflater();
+			View item = inflater.inflate(R.layout.item_search_travel, null);
+			
+			return item;
+		}
+
 	}
 	
 }

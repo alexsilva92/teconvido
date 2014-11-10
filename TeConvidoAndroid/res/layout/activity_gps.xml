@@ -43,7 +43,7 @@
                     android:orientation="vertical" >
 
                     <ImageView
-                        android:id="@+id/ImageView01"
+                        android:id="@+id/imgv_destiny"
                         android:layout_width="194dp"
                         android:layout_height="0dp"
                         android:layout_weight="1"

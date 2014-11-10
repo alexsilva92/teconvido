@@ -445,3 +445,72 @@ java.net.BindException: Address already in use: JVM_Bind
 26/05 13:03:15 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
 26/05 13:03:19 | INFO  | ACCESO | IP : /127.0.0.1:50497 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva7f92@gmail.com","password":"65111992"}
 26/05 13:03:29 | INFO  | ACCESO | IP : /127.0.0.1:50501 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+23/10 11:53:35 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+23/10 11:53:58 | INFO  | ACCESO | IP : /127.0.0.1:62919 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+23/10 12:35:37 | ERROR | SERVIDOR | Error al iniciar el servidor
+java.net.BindException: Address already in use: JVM_Bind
+	at java.net.DualStackPlainSocketImpl.bind0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketBind(DualStackPlainSocketImpl.java:106)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:376)
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:190)
+	at java.net.ServerSocket.bind(ServerSocket.java:376)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at java.net.ServerSocket.<init>(ServerSocket.java:128)
+	at com.taskserver.server.AbstractServer.<init>(AbstractServer.java:38)
+	at com.teconvido.server.TeConvidoServer.<init>(TeConvidoServer.java:51)
+	at com.teconvido.server.TeConvidoServer.main(TeConvidoServer.java:87)
+23/10 12:35:47 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+23/10 12:35:56 | INFO  | ACCESO | IP : /127.0.0.1:63094 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+23/10 12:59:27 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+23/10 12:59:31 | INFO  | ACCESO | IP : /127.0.0.1:63097 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+23/10 12:59:31 | INFO  | ACCESO | IP : /127.0.0.1:63099 | ACCION: GET_CARS_USER | BUSQUEDA: null
+23/10 13:01:30 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+23/10 13:01:34 | INFO  | ACCESO | IP : /127.0.0.1:63100 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+23/10 13:02:58 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+23/10 13:03:01 | INFO  | ACCESO | IP : /127.0.0.1:63102 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+23/10 13:03:02 | INFO  | ACCESO | IP : /127.0.0.1:63104 | ACCION: GET_CARS_USER | BUSQUEDA: null
+23/10 13:05:08 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+23/10 13:05:18 | INFO  | ACCESO | IP : /127.0.0.1:63105 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+23/10 13:05:18 | ERROR | ACCESO | IP : /127.0.0.1:63107 | ACCION: GetElement | java.lang.IllegalArgumentException: Can not set java.lang.String field com.teconvido.bd.modelo.TicketLogin.login to java.lang.String
+23/10 13:06:42 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+23/10 13:07:13 | INFO  | ACCESO | IP : /127.0.0.1:63108 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+23/10 13:07:13 | INFO  | ACCESO | IP : /127.0.0.1:63110 | ACCION: GET_CARS_USER | BUSQUEDA: null
+23/10 13:09:38 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+23/10 13:09:42 | INFO  | ACCESO | IP : /127.0.0.1:63111 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+23/10 13:09:43 | INFO  | ACCESO | IP : /127.0.0.1:63113 | ACCION: GET_CARS_USER | BUSQUEDA: null
+23/10 13:11:26 | INFO  | ACCESO | IP : /127.0.0.1:63114 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+23/10 13:11:26 | INFO  | ACCESO | IP : /127.0.0.1:63116 | ACCION: GET_GCM_ID | BUSQUEDA: null
+27/10 11:16:39 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+27/10 11:16:47 | INFO  | ACCESO | IP : /127.0.0.1:57380 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+27/10 11:16:47 | INFO  | ACCESO | IP : /127.0.0.1:57382 | ACCION: GET_GCM_ID | BUSQUEDA: null
+27/10 11:17:39 | INFO  | ACCESO | IP : /127.0.0.1:57385 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+27/10 11:17:39 | INFO  | ACCESO | IP : /127.0.0.1:57387 | ACCION: GET_CARS_USER | BUSQUEDA: null
+27/10 11:18:56 | INFO  | ACCESO | IP : /127.0.0.1:57391 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+27/10 11:18:56 | INFO  | ACCESO | IP : /127.0.0.1:57393 | ACCION: GET_CARS_USER | BUSQUEDA: null
+27/10 11:27:25 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+27/10 11:27:28 | INFO  | ACCESO | IP : /127.0.0.1:57416 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+27/10 11:27:29 | INFO  | ACCESO | IP : /127.0.0.1:57418 | ACCION: GET_CARS_USER | BUSQUEDA: null
+27/10 11:28:38 | INFO  | ACCESO | IP : /127.0.0.1:57421 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+27/10 11:28:38 | INFO  | ACCESO | IP : /127.0.0.1:57423 | ACCION: GET_CARS_USER | BUSQUEDA: null
+27/10 11:29:49 | INFO  | ACCESO | IP : /127.0.0.1:57427 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+27/10 11:29:49 | INFO  | ACCESO | IP : /127.0.0.1:57429 | ACCION: GET_CARS_USER | BUSQUEDA: null
+27/10 11:30:09 | INFO  | ACCESO | IP : /127.0.0.1:57430 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+27/10 11:30:09 | INFO  | ACCESO | IP : /127.0.0.1:57432 | ACCION: GET_CARS_USER | BUSQUEDA: null
+27/10 11:35:34 | INFO  | ACCESO | IP : /127.0.0.1:57592 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+27/10 11:35:35 | INFO  | ACCESO | IP : /127.0.0.1:57594 | ACCION: GET_CARS_USER | BUSQUEDA: null
+27/10 11:35:48 | INFO  | ACCESO | IP : /127.0.0.1:57597 | ACCION: IS_CORRECT_LOGIN | BUSQUEDA: {"email":"alexsilva792@gmail.com","password":"65111992"}
+27/10 11:35:48 | INFO  | ACCESO | IP : /127.0.0.1:57599 | ACCION: GET_CARS_USER | BUSQUEDA: null
+03/11 18:02:24 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000
+03/11 18:44:56 | ERROR | SERVIDOR | Error al iniciar el servidor
+java.net.BindException: Address already in use: JVM_Bind
+	at java.net.DualStackPlainSocketImpl.bind0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketBind(DualStackPlainSocketImpl.java:106)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:376)
+	at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:190)
+	at java.net.ServerSocket.bind(ServerSocket.java:376)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at java.net.ServerSocket.<init>(ServerSocket.java:128)
+	at com.taskserver.server.AbstractServer.<init>(AbstractServer.java:38)
+	at com.teconvido.server.TeConvidoServer.<init>(TeConvidoServer.java:51)
+	at com.teconvido.server.TeConvidoServer.main(TeConvidoServer.java:69)
+03/11 18:46:53 | INFO  | SERVIDOR | Servidor iniciado en el puerto: 20000

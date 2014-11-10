@@ -21,7 +21,7 @@ package com.teconvido.common;
  */
 public interface TeConvidoConstantDB {
 
-    public enum GetDB{IS_CORRECT_LOGIN,GET_GCM_ID};
+    public enum GetDB{IS_CORRECT_LOGIN,GET_CARS_USER,GET_GCM_ID};
     
     public enum InsertDB{INSERT_USER,INSERT_C}
     

@@ -22,25 +22,90 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/ll_center"
+            android:id="@+id/ll_panelCenter"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:baselineAligned="false"
-            android:gravity="center"
             android:orientation="vertical" >
 
-            <GridView
-                android:id="@+id/gv_menu"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/margin_bottom_menu"
+            <LinearLayout
+                android:id="@+id/ll_nextTravel"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
                 android:layout_marginTop="@dimen/margin_top_menu"
-                android:horizontalSpacing="10dp"
-                android:numColumns="2"
-                android:verticalSpacing="10dp" >
+                android:layout_weight="5"
+                android:background="@drawable/btn_gray"
+                android:orientation="vertical" >
 
-            </GridView>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/title_black"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/txtv_nextTravelTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/magin_value_2"
+                        android:text="@string/next_travel_title"
+                        android:shadowColor="#000000"
+                        android:textStyle="bold"
+				        android:shadowDx="1"
+				        android:shadowDy="1"
+				        android:shadowRadius="2"
+                        android:textColor="#FFFFFF" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center" >
+
+                    <TextView
+                        android:id="@+id/txtv_nextTravelContent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:shadowColor="#000000"
+                        android:shadowDx="1"
+                        android:shadowDy="1"
+                        android:shadowRadius="2"
+                        android:text="28/10 10:00 TER - CAL"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_center"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="2"
+                android:baselineAligned="false"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <GridView
+                    android:id="@+id/gv_menu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_bottom_menu"
+                    android:horizontalSpacing="10dp"
+                    android:numColumns="2"
+                    android:verticalSpacing="10dp" >
+                </GridView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="5"
+                android:orientation="vertical" >
+            </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout

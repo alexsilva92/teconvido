@@ -16,7 +16,6 @@
 
 package com.utilities.communication.postrequest;
 
-import com.utilities.gson.GsonS;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -94,19 +93,19 @@ public class PostRequest {
         }
     }
     
-    public static void main(String[] argv) throws IOException{
-        String parameter_s = "origin=TERUEL&destination=MORA DE RUBIELOS&deviation=10";
-        URL url = new URL("http","localhost","/controllers/googleapi/google_request.php");
-        PostParameter parameter = new PostParameter();
-        parameter.setUrl(url);
-        parameter.setParameter(parameter_s);
-        PostResponse response;
-        try {
-            response = PostRequest.send(parameter);
-            String json = response.getResponse();
-            System.out.println(json);
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-    }
+//    public static void main(String[] argv) throws IOException{
+//        String parameter_s = "origin=TERUEL&destination=MORA DE RUBIELOS&deviation=10";
+//        URL url = new URL("http","localhost","/controllers/googleapi/google_request.php");
+//        PostParameter parameter = new PostParameter();
+//        parameter.setUrl(url);
+//        parameter.setParameter(parameter_s);
+//        PostResponse response;
+//        try {
+//            response = PostRequest.send(parameter);
+//            String json = response.getResponse();
+//            System.out.println(json);
+//        } catch (IOException ex) {
+//            ex.printStackTrace();
+//        }
+//    }
 }

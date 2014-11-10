@@ -2,105 +2,186 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:background="@drawable/general_background"
+    android:orientation="horizontal" >
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/general_background"
-        android:baselineAligned="false"
-        android:orientation="horizontal" >
+        android:id="@+id/ll_marginLeft"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="20"
+        android:gravity="left|center_vertical"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_panelCenter"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:orientation="vertical" >
 
         <LinearLayout
-            android:id="@+id/ll_marginLeft"
+            android:id="@+id/ll_center"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="5"
-            android:gravity="left|center_vertical"
-            android:orientation="vertical" >
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:baselineAligned="false"
             android:orientation="vertical" >
 
             <LinearLayout
-                android:id="@+id/ll_center"
                 android:layout_width="fill_parent"
-                android:layout_height="0dp"
-                android:layout_weight="5"
-                android:baselineAligned="false"
+                android:layout_height="fill_parent"
+                android:layout_margin="@dimen/magin_value_2"
+                android:background="@drawable/background_white_margin_black"
                 android:gravity="center"
                 android:orientation="vertical" >
 
                 <LinearLayout
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margin_bottom_search"
-                    android:background="@drawable/background_search"
-                    android:gravity="center"
-                    android:orientation="vertical" >
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:id="@+id/imgv_origin"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="10"
+                        android:src="@drawable/input_origin_lg" />
 
                     <AutoCompleteTextView
                         android:id="@+id/edtx_origin"
-                        android:layout_width="match_parent"
+                        android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/margin_top_search"
+                        android:layout_weight="1"
                         android:ems="10"
                         android:hint="@string/search_travel_label_origin" >
 
                         <requestFocus />
                     </AutoCompleteTextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:id="@+id/imgv_destiny"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="10"
+                        android:src="@drawable/input_destination_lg" />
 
                     <AutoCompleteTextView
                         android:id="@+id/edtx_destiny"
-                        android:layout_width="match_parent"
+                        android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/margin_top_search"
+                        android:layout_weight="1"
                         android:ems="10"
                         android:hint="@string/search_travel_label_destiny" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:id="@+id/imgv_date"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="10"
+                        android:src="@drawable/input_date_lg" />
 
                     <EditText
                         android:id="@+id/edtx_date"
-                        android:layout_width="match_parent"
+                        android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/margin_top_search"
+                        android:layout_weight="1"
                         android:editable="false"
                         android:ems="10"
                         android:hint="@string/search_travel_label_date"
                         android:inputType="date" />
-
-                    <Button
-                        android:id="@+id/bt_search"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/margin_top_search"
-                        android:layout_marginTop="@dimen/margin_top_search"
-                        android:background="@drawable/btn_blue"
-                        android:shadowColor="#000000"
-                        android:shadowDx="1"
-                        android:shadowDy="1"
-                        android:shadowRadius="2"
-                        android:text="@string/search_travel_button_search"
-                        android:textColor="#FFFFFF"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
-
                 </LinearLayout>
 
+                <Button
+                    android:id="@+id/bt_search"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginBottom="@dimen/magin_value_2"
+                    android:layout_marginTop="@dimen/magin_value_2"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_blue"
+                    android:shadowColor="#000000"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="2"
+                    android:text="@string/search_travel_button_search"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/ll_marginRight"
+            android:id="@+id/ll_results"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_weight="5"
-            android:gravity="left|center_vertical"
-            android:orientation="vertical" >
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/background_results_search"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/title_black"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/txtv_results"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/magin_value_2"
+                    android:shadowColor="#000000"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="2"
+                    android:text="Resultados"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/lv_travels"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_top_menu"
+                android:dividerHeight="15dp"
+                android:duplicateParentState="true"
+                android:longClickable="false"
+                android:paddingTop="10dp" >
+            </ListView>
         </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_marginRight"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="20"
+        android:gravity="left|center_vertical"
+        android:orientation="vertical" >
     </LinearLayout>
 
 </LinearLayout>

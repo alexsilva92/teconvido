@@ -13,13 +13,15 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 
 
 public class MenuActivity extends AbstractTopMenuActivity {
@@ -27,14 +29,26 @@ public class MenuActivity extends AbstractTopMenuActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		setIsMenu(true);
 
         setContentView(R.layout.activity_menu);
             
         GridView gridview = (GridView) findViewById(R.id.gv_menu);
         gridview.setAdapter(new MenuAdapter());
+        
+        LinearLayout ll_nextTravel = (LinearLayout) findViewById(R.id.ll_nextTravel);
+        ll_nextTravel.setOnClickListener(
+        	new OnClickListener(){
+        		public void onClick(View v) {
+        			Intent currentTravel = new Intent(context,CurrentTravelActivity.class);
+        			currentTravel.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | 
+	    					   Intent.FLAG_ACTIVITY_SINGLE_TOP);
+					context.startActivity(currentTravel);
+				}
+		});
             
-        ActionBar actionBar = getActionBar();
-        actionBar.setDisplayShowHomeEnabled(true);
+        //ActionBar actionBar = getActionBar();
+        //actionBar.setDisplayShowHomeEnabled(true);
 	}
 	
 	@Override

@@ -177,15 +177,15 @@ public class MangerConfigDB {
     }
     
 
-    public static void main(String[] argv) throws JAXBException, IOException, 
-    CryptorException {
-       MangerConfigDB config = new MangerConfigDB("configDB.xml");
-       config.setApplication("TeConvido");
-       config.setAuthor("Alejandro Silva");
-       config.setJdbc("jdbc:mysql://155.210.68.155:3306/teconvido");
-       config.setDriver("com.mysql.jdbc.Driver");
-       config.setUser("admin");
-       config.setPassword("admin");
-       config.setVersion("1.0");
-    }
+//    public static void main(String[] argv) throws JAXBException, IOException, 
+//    CryptorException {
+//       MangerConfigDB config = new MangerConfigDB("configDB.xml");
+//       config.setApplication("TeConvido");
+//       config.setAuthor("Alejandro Silva");
+//       config.setJdbc("jdbc:mysql://155.210.68.155:3306/teconvido");
+//       config.setDriver("com.mysql.jdbc.Driver");
+//       config.setUser("admin");
+//       config.setPassword("admin");
+//       config.setVersion("1.0");
+//    }
 }

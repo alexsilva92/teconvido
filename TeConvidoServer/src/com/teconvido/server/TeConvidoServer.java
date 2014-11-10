@@ -20,10 +20,8 @@ import com.taskserver.server.AbstractTaskManager;
 import com.teconvido.db.ManagerRequestDB;
 import com.utilities.communication.socket.safesocket.gson.SafeServerSocket;
 import com.utilities.communication.socket.safesocket.gson.SafeSocket;
-import com.utilities.cryptor.CryptorException;
 import java.io.IOException;
 import java.net.Socket;
-import javax.xml.bind.JAXBException;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
@@ -38,7 +36,9 @@ public class TeConvidoServer extends AbstractServer{
             TeConvidoServer.class);
     
     private static final String SERVER_LOGGER_PROPERTIES = 
-            "logger/server.logger.properties";
+            "log_properties";
+    
+    private static final String IP = "155.210.68.155";
     
     public TeConvidoServer(int port,AbstractTaskManager manager) 
     throws IOException{
@@ -60,26 +60,8 @@ public class TeConvidoServer extends AbstractServer{
         catch (Exception e){
             BasicConfigurator.configure();
         }
-        ManagerRequestDB managerDB = null;
-        try {
-            managerDB = new ManagerRequestDB();
+        ManagerRequestDB managerDB = new ManagerRequestDB(IP);
             
-        } catch (JAXBException ex) {
-            LOOGER.error("SERVIDOR | El archivo xml de preferencias "
-                    + "esta corrupto", ex);
-            System.exit(-1);
-        } catch (IOException ex) {
-            LOOGER.error("SERVIDOR | No se tiene acceso al archivo "
-                    + "de preferencias", ex);
-            System.exit(-1);
-        } catch (CryptorException ex) {
-            LOOGER.error("SERVIDOR | La clave de encriptacion es invalida", ex);
-            System.exit(-1);
-        } catch (ClassNotFoundException ex) {
-            LOOGER.error("SERVIDOR | No se ha encontrado el driver "
-                    + "de conexion", ex);
-            System.exit(-1);
-        }
         TaskManager taskManager = new TaskManager(managerDB);
         
         TeConvidoServer server = null;

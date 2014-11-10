@@ -47,10 +47,11 @@ public class TaskBuilderUpdateElementDB implements TaskBuilder{
                 UpdateDB typeUpdate = communication.receive(UpdateDB.class);
                 String search = communication.receive(String.class);
                 String element = communication.receive(String.class);
+                String ticket = communication.receive(String.class);
             
                 try{
                 String result = ((TaskManager)manager).getManagerRequestDB().update(
-                        typeUpdate,search,element);
+                        typeUpdate,search,element,ticket);
 
                 logger.info("ACCESO | IP : " + communication.getSocket().
                         getRemoteSocketAddress().toString() + " | ACCION: " + 

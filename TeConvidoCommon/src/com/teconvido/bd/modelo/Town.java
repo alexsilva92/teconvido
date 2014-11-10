@@ -16,11 +16,13 @@
 
 package com.teconvido.bd.modelo;
 
+import java.io.Serializable;
+
 /**
  * Town.java
  * @author Alejandro Silva <alexsilva792@gmail.com>
  */
-public class Town {
+public class Town implements Serializable{
     private String name;
     private Double latitude;
     private Double longitude;

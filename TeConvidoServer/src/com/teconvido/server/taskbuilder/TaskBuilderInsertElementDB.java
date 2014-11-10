@@ -46,10 +46,11 @@ public class TaskBuilderInsertElementDB implements TaskBuilder{
             try {
                 InsertDB typeInsert = communication.receive(InsertDB.class);
                 String element = communication.receive(String.class);
+                String ticket = communication.receive(String.class);
             
                 try{
                 String result = ((TaskManager)manager).getManagerRequestDB().insert(
-                        typeInsert,element);
+                        typeInsert,element,ticket);
 
                 logger.info("ACCESO | IP : " + communication.getSocket().
                         getRemoteSocketAddress().toString() + " | ACCION: " + 

@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.android.teconvido.R;
+import com.android.teconvido.activity.MyTravelsActivity;
 import com.android.teconvido.activity.SearchTravelActivity;
 
 import android.app.Activity;
@@ -58,7 +59,10 @@ public class ContainerMenu {
 				BitmapFactory.decodeResource(context.getResources(),R.drawable.my_travels_128x128),
 				new OnClickListener(){
 					public void onClick(View v) {
-						Toast.makeText(context, "Sin Implementar", Toast.LENGTH_SHORT).show();
+						Intent myTravels = new Intent(context,MyTravelsActivity.class);
+						myTravels.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | 
+		    					   Intent.FLAG_ACTIVITY_SINGLE_TOP);
+						context.startActivity(myTravels);
 					}
 				}
 		));

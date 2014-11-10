@@ -74,9 +74,9 @@ public class NotificationPush {
                 return ReturnNotificationPush.UNKNOWN_ERROR;
         }
     }
-    
-    public static void main(String[] argv) throws IOException{
-        System.out.println(NotificationPush.send("APA91bE0G5oiSFUD6Gah2QR5UgSXQuC2EJrLDYeFIXseq91oxk30ykK2ogYx6Mpoj837y-l1DztyT6BDs5cj_RgYZRSjRkOgZ0kNR2OxC5DNIzrYxs08qRaZjkmqXDSaLy8QfDl4-ViA9DQlngai2jSBx9X49_-k6Q", "Prueba prueba los microfonos"));
-    }
+//    
+//    public static void main(String[] argv) throws IOException{
+//        System.out.println(NotificationPush.send("APA91bE0G5oiSFUD6Gah2QR5UgSXQuC2EJrLDYeFIXseq91oxk30ykK2ogYx6Mpoj837y-l1DztyT6BDs5cj_RgYZRSjRkOgZ0kNR2OxC5DNIzrYxs08qRaZjkmqXDSaLy8QfDl4-ViA9DQlngai2jSBx9X49_-k6Q", "Prueba prueba los microfonos"));
+//    }
 }
 

@@ -47,10 +47,11 @@ public class TaskBuilderRemoveElementDB implements TaskBuilder{
             try {
                 RemoveDB typeRemove = communication.receive(RemoveDB.class);
                 String element = communication.receive(String.class);
+                String ticket = communication.receive(String.class);
             
                 try{
                 String result = ((TaskManager)manager).getManagerRequestDB().remove(
-                        typeRemove,element);
+                        typeRemove,element,ticket);
 
                 logger.info("ACCESO | IP : " + communication.getSocket().
                         getRemoteSocketAddress().toString() + " | ACCION: " + 

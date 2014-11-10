@@ -149,7 +149,7 @@ public class LoginActivity extends Activity implements OnClickListener{
 					if (gcmId == null || gcmId.equals("")) {
 						gcmId = gcm.register(SENDER_ID);	
 			        }
-					client.updateGcmCode(email, gcmId);
+					//client.updateGcmCode(email, gcmId);
 					return ReturnLogin.CORRECT;
 				}else{
 					return ReturnLogin.INCORRECT;
@@ -173,7 +173,9 @@ public class LoginActivity extends Activity implements OnClickListener{
 		        	preferences.setRemember(chbx_remember.isChecked());
 		        		
 		        	Intent main = new Intent(context,MenuActivity.class);
+		        	main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 					startActivity(main);
+					finish();
 		        	break;
 		        
 	    		case INCORRECT: 

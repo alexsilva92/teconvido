@@ -52,7 +52,7 @@ public class TaskBuilderNotificationPush implements TaskBuilder{
                         communication.receive(TypeNotificationPush.class);
                 String mensaje = communication.receive(String.class);
                 
-                String gcmId = (String) ((TaskManager)manager).getManagerRequestDB().get(GetDB.GET_GCM_ID,login);
+                String gcmId = (String) ((TaskManager)manager).getManagerRequestDB().get(GetDB.GET_GCM_ID,login,null);
 
                 if(gcmId != null){
                     NotificationPush.send(gcmId,type, mensaje);

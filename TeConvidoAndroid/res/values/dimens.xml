@@ -5,4 +5,5 @@
     <dimen name="margin_bottom_search">30dp</dimen>
     <dimen name="margin_bottom_menu">50dp</dimen>
     <dimen name="margin_top_menu">5dp</dimen>
+    <dimen name="magin_value_2">2dp</dimen>
 </resources>

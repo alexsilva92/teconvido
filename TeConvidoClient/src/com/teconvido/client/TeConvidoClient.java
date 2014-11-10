@@ -6,6 +6,8 @@
 
 package com.teconvido.client;
 
+import com.google.gson.reflect.TypeToken;
+import com.teconvido.bd.modelo.Car;
 import com.teconvido.bd.modelo.TicketLogin;
 import com.teconvido.bd.modelo.User;
 import com.teconvido.common.TeConvidoConstantDB;
@@ -14,9 +16,12 @@ import com.teconvido.common.TypeServiceServer;
 import com.utilities.communication.socket.safesocket.gson.SafeClientSocket;
 import com.utilities.gson.GsonS;
 import java.io.IOException;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- *
+ * TeConvidoClient
  * @author Alex
  */
 public class TeConvidoClient implements TeConvidoConstantDB{
@@ -31,10 +36,8 @@ public class TeConvidoClient implements TeConvidoConstantDB{
         this.host = host;
         this.port = port;
     }
-    
-    private boolean login() throws IOException{
-        return login(email,password);
-    }
+ 
+/******************************* GET ******************************************/    
     
     public boolean login(String email,String password) throws IOException{
         SafeClientSocket socket = new SafeClientSocket(host,port);
@@ -43,9 +46,11 @@ public class TeConvidoClient implements TeConvidoConstantDB{
         user.setEmail(email);
         user.setPassword(password);
 
-        socket.send(TypeServiceServer.GET_ELEMENT);
-        socket.send(GetDB.IS_CORRECT_LOGIN);
-        socket.send(GsonS.getGson().toJson(user));
+        socket.send(TypeServiceServer.GET_ELEMENT); //typeService
+        socket.send(GetDB.IS_CORRECT_LOGIN); // typeGet
+        socket.send(GsonS.getGson().toJson(user)); //parameter
+        socket.send(null); //ticket
+        
         ticket = GsonS.getGson().fromJson(socket.receive(String.class),
                 TicketLogin.class);
         if(ticket != null){
@@ -55,29 +60,22 @@ public class TeConvidoClient implements TeConvidoConstantDB{
         return ticket != null;
     }
     
-    public boolean insertClient(User user) throws IOException{
+    public List<Car> getCarsUser() throws IOException {
         SafeClientSocket socket = new SafeClientSocket(host,port);
+
+        socket.send(TypeServiceServer.GET_ELEMENT); //typeService
+        socket.send(GetDB.GET_CARS_USER); // typeGet
+        socket.send(null); //parameter
+        socket.send(ticket.getTicket()); //ticket
         
-        socket.send(TypeServiceServer.INSERT_ELEMENT);
-        socket.send(InsertDB.INSERT_USER);
-        socket.send(GsonS.getGson().toJson(user));
-        
-        return GsonS.getGson().fromJson(socket.receive(String.class), 
-                Boolean.class); 
+        String jsonS = socket.receive(String.class);
+        System.out.println(jsonS);
+        List<Car> cars = GsonS.getGson().fromJson(jsonS,
+                new TypeToken<List<Car>>(){}.getType());
+
+        return cars;
     }
     
-    public boolean updateGcmCode(String email, String gcmCode) 
-    throws IOException{
-        SafeClientSocket socket = new SafeClientSocket(host,port);
-        
-        socket.send(TypeServiceServer.UPDATE_ELEMENT);
-        socket.send(UpdateDB.UPDATE_GCM_CODE);
-        socket.send(email);
-        socket.send(gcmCode);
-        
-        return GsonS.getGson().fromJson(socket.receive(String.class), 
-                Boolean.class);
-    }
     
     @Deprecated
     public boolean sendNotificationPush(String login,TypeNotificationPush type, 
@@ -95,9 +93,13 @@ public class TeConvidoClient implements TeConvidoConstantDB{
     
     
     public static void main(String[] argv) throws IOException{
-        TeConvidoClient client = new TeConvidoClient("localhost",20000);
+        TeConvidoClient client = new TeConvidoClient("155.210.68.155",20000);
         //System.out.println(client.sendNotificationPush("xperiaJ", TypeNotificationPush.STANDARD, "Pato"));
         boolean returnL = client.login("alexsilva792@gmail.com", "65111992");
-        System.out.println(returnL);
+        
+        for( Car car :client.getCarsUser()){
+            System.out.println(returnL + " " + car.getBrand() +" "+ car.getModel());
+        }
+        
     }
 }
